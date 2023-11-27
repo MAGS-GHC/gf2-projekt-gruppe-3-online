@@ -1,0 +1,13 @@
+B1: (EDM - Visualiser Data)
+    1: Implement sorting method for 3 value sets, using test objects
+        a: Create constructor framework
+    2: Sort best/worst toggles, decide what best/worst even means
+    3: calculate and display mean + median of each column
+    4: Async import excel data, or store in folder
+        a: tie in with constructor framework, class to objects, array?
+        b: nest objects and async calculate each? (Dubious)
+    5: Improve presentation
+B1: Optionals
+    1: Re-do sort to not use built-in .sort method
+        a: research efficiency
+    2: Graphs built from data set, different for each column
