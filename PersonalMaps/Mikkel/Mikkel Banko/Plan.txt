@@ -1,0 +1,42 @@
+A: CREATE INPUT FIELDS
+
+1. xCreate input grid 3 rows, 9 columns
+2. xGive inputs indvidual id's
+3. Make onclick function that turns baggroundcolor green
+4. Attach onclick backgroundcolor: "green" function to all input fields
+
+B: CREATE BUTTON
+
+1. Create button with onclick function that inputs test number to input box row 0, column 0
+2. Lock fields when function is exceuted
+
+C: CREATE RANDOM NUMBER FUNCTION
+
+15 numbers and 1 in each number group 1-9, 10-19.
+
+1 randomnumber to each group
+
+
+
+1. Test that a random number between 1-9 gets written in row 0, column 0
+2. Test that random number from 10-19 is written in row 1, column 0
+3. test random number 20-29 row 2, column 0
+5. Input only 5 numbers in random columns between 0-8
+6. Make sure the same number can't accur twice
+
+
+D: CREATE ID FUNCTION
+
+1. Create input text field
+2. Save numbers/plate by id of user
+3. clear plate a give new random numbers with new id
+4. Only let valid if aA-zZ letters
+
+E: CSS
+
+1. Style in Figma
+
+D: EXTRA FUNCTIONS
+
+1. Alert when BANKO
+2. execute button functions on "Enter"
