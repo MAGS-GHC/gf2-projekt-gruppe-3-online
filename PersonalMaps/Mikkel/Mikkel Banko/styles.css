@@ -7,11 +7,3 @@
     text-align: center;
     border-style: solid;
    }
-   
-   .gridMain input {
-    background-color: white;
-  }
-
-  .gridMain input:focus {
-    background-color: green;
-  }
