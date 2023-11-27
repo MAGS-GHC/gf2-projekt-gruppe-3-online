@@ -1,15 +1,16 @@
-const KPItest1 = {
-    orders: 11,
-    precision: 25.00,
-    accidents: 1
+//object constructor
+function KPI(dateIn, ordersIn, precisionIn, faultsIn) {
+    this.date = dateIn;
+    this.orders = ordersIn;
+    this.precision = precisionIn;
+    this.faults = faultsIn;
+    console.log("Ran")
 }
-const KPItest2 = {
-    orders: 12,
-    precision: 50.00,
-    accidents: 2
-}
-const KPItest3 = {
-    orders: 13,
-    precision: 75.00,
-    accidents: 3
-}
+
+//use constructor for test values
+const test1 = new KPI(2003, 125, 65.50, 4);
+const test2 = new KPI(2004, 220, 85.50, 2);
+const test3 = new KPI(2005, 330, 75.50, 3);
+
+document.getElementById("testField").innerText = test1 + " --- " + test2 + " --- " + test3;
+
