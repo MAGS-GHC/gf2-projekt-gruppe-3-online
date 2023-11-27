@@ -1,0 +1,3 @@
+A: Import/arrange excel
+    - Object key-value sets
+    - Sort by best/worst per column
