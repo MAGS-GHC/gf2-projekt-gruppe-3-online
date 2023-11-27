@@ -1,0 +1,4 @@
+.sortOptions {
+    display: grid;
+    grid-template-columns: 60px 120px 120px ;
+}

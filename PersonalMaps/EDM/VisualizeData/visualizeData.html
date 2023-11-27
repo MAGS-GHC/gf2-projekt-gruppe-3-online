@@ -3,10 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>KPI Visualized</title>
     <script defer src="/PersonalMaps/EDM/VisualizeData/visualize.js"></script>
+    <link rel="stylesheet" href="/PersonalMaps/EDM/VisualizeData/visStyle.css">
+    <link rel="icon" type="image/x-icon" href="/PersonalMaps/EDM/VisualizeData/abacus.png">
 </head>
 <body>
-    <div><snap id="testField"></snap></div>
+    <div class="fileSelect">
+        <input type="file" id="KPIfile" accept=".xlsx" required>
+    </div>
+    <div>
+        <button onclick="calcTable()">This is Button. Nice to meet you</button>
+    </div>
+<br><br>
+
+    <div class="sortOptions">Sort by: 
+        <select id="sortByOptions" onChange="sortBy()">
+            <option value="dateID">Date</option>
+            <option value="orders">Orders</option>
+            <option value="precision">Precision</option>
+            <option value="faults">Faults</option>
+        </select>
+        <select id="lowHighSelect" onChange="sortBy()">
+            <option value="highToLow">High to Low</option>
+            <option value="lowToHigh">Low to High</option>
+        </select>
+    </div>
+
 </body>
 </html>
