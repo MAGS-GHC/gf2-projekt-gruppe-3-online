@@ -1,0 +1,3 @@
+read-excel-file (https://www.npmjs.com/package/read-excel-file) package used.
+
+input type="file" field in html to read excel sheet.

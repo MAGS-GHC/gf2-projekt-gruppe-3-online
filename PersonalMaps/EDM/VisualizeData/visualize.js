@@ -1,12 +1,12 @@
 let KPIparsed;
-
+let KPIobject = new Map();
 //object constructor
-function KPI(dateIn, ordersIn, precisionIn, faultsIn) {
-    this.dateID = dateIn;
-    this.orders = ordersIn;
-    this.precision = precisionIn;
-    this.faults = faultsIn;
-}
+//function KPI(dateIn, ordersIn, precisionIn, faultsIn) {
+//    this.dateID = dateIn;
+//    this.orders = ordersIn;
+//    this.precision = precisionIn;
+//    this.faults = faultsIn;
+//}
 
 //use constructor for test values
 //const test1 = new KPI(2003, 125, 65.50, 4);
@@ -29,9 +29,9 @@ function sortBy() {
     //function(a, b), reverse with function(b, a)?
 }
 
-function KPIExcelParse() {
-    let KPIsource = document.getElementById("KPIfile");
-    readXlsxFile(KPIsource.files[0]).then(function(rows) {
+async function KPIExcelParse() {
+    let KPIsource = await document.getElementById("KPIfile");
+    await readXlsxFile(KPIsource.files[0]).then(function(rows) {
         //rows an array of rows
         //each row an array of cells
         KPIparsed = rows;
@@ -40,9 +40,26 @@ function KPIExcelParse() {
     
 }
 
-function createObjectKeys() {
-    let numKeys = KPIparsed[0].length;
-    console.log(numKeys)
+function createObjectKeys() { //does nothing yet, except show top values
+    let keysArray = KPIparsed[0]
+    console.log("craaaarrrgh")
+    console.log(keysArray)
+    
+    //KPIobject.set(keysArray); maybe keep for dynamic menu?
+    console.log(KPIobject)
+    console.log(KPIparsed.length)
+
+    //loop times keyvalues
+    for (keyNums=0; keyNums<keysArray.length; keyNums++) {
+        console.log("Outer loop")
+        KPIobject.set(keysArray[keyNums])
+        let tempArray = [];
+        KPIparsed.forEach(element => {
+            tempArray.push(element[keyNums]);
+        });
+        console.log(tempArray)
+    }
+    console.log(KPIobject)
 }
 
 
