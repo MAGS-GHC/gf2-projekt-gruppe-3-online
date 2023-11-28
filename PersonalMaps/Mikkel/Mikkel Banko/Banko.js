@@ -200,3 +200,16 @@ function bankoRow1() {
             }
         } while (loopOnOff === 0);
         }
+
+// Loop in row and column
+function checkRule(){
+    for (let col = 0; col < 8; col++){
+            for(let row = 0; row < 4; row++);
+            let elementId = "r" + row + "c" + col;
+            let fieldValue = document.getElementById(elementId).value;
+
+        if (fieldValue === "") {
+            emptyFieldCount++;
+}
+        
+}}
