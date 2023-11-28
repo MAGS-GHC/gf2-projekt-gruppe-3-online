@@ -1,10 +1,12 @@
 function bankoCard() {
 
-      // Clear all inputs
+     
       
- let t = 0;
+ let loopOnOff = 0;
 
 do {
+
+    //Clear all inputs
     for (let i = 0; i <= 8; i++) {
         let elementId = "r0c" + i;
         document.getElementById(elementId).value = "";
@@ -96,7 +98,7 @@ do {
     }else if (randomNumbersArray[3] > 49 && randomNumbersArray[3] <= 59) {
         document.getElementById("r0c5").value = randomNumbersArray[3];
     }else if (randomNumbersArray[3] > 59 && randomNumbersArray[3] <= 69) {
-        document.getElementById("r0c6").value = randomNumbersArray[2];
+        document.getElementById("r0c6").value = randomNumbersArray[3];
     }else if (randomNumbersArray[3] > 69 && randomNumbersArray[3] <= 79) {
         document.getElementById("r0c7").value = randomNumbersArray[3];
     }else if (randomNumbersArray[3] > 79 && randomNumbersArray[3] <= 90) {
@@ -122,10 +124,10 @@ do {
         document.getElementById("r0c8").value = randomNumbersArray[4];
 
     }if (countEmptyFields1() <= 4) {
-    t = 1;
-    console.log("test")
+    loopOnOff = 1;
+    
     }
-} while (t === 0);
+} while (loopOnOff === 0);
 }
 
 
