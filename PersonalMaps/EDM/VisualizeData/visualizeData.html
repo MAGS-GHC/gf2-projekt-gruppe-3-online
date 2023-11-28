@@ -5,12 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KPI Visualized</title>
     <script defer src="/PersonalMaps/EDM/VisualizeData/visualize.js"></script>
+    <script defer src="https://unpkg.com/read-excel-file@5.x/bundle/read-excel-file.min.js"></script>
     <link rel="stylesheet" href="/PersonalMaps/EDM/VisualizeData/visStyle.css">
     <link rel="icon" type="image/x-icon" href="/PersonalMaps/EDM/VisualizeData/abacus.png">
 </head>
 <body>
     <div class="fileSelect">
-        <input type="file" id="KPIfile" accept=".xlsx" required>
+        <input type="file" id="KPIfile" accept=".xlsx" oninput="KPIExcelParse()" required>
     </div>
     <div>
         <button onclick="calcTable()">This is Button. Nice to meet you</button>

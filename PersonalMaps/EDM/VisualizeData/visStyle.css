@@ -2,3 +2,8 @@
     display: grid;
     grid-template-columns: 60px 120px 120px ;
 }
+
+body {
+    background-image: url("/PersonalMaps/EDM/VisualizeData/bunMetric.jpeg");
+    background-repeat: no-repeat;
+}
