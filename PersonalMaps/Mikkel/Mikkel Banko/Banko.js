@@ -1,6 +1,18 @@
-
 function bankoCard() {
+
+      // Clear all inputs
+      for (let i = 0; i <= 8; i++) {
+        let elementId = "r0c" + i;
+        document.getElementById(elementId).value = "";
+    }
+ let t = 0;
+
+do {
+    
+
+   
     let randomNumbersArray = [];
+   
 
     for (let i = 0; i < 5; i++) {
         let randomNumber;
@@ -111,8 +123,9 @@ function bankoCard() {
         document.getElementById("r0c8").value = randomNumbersArray[4];
 
     }if (countEmptyFields1() > 4) {
-    console.log("Fejl")
-
+    t = 1;
+    }
+} while (t === 0);
 }
 
 
@@ -134,7 +147,7 @@ function countEmptyFields1() {
 }
 
 
-}
+
 
 //Sørg for det ikke er samme tal
 
