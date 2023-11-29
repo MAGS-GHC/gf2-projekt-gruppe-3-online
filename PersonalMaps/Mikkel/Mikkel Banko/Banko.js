@@ -1,4 +1,4 @@
-// Counts Empty fields functions
+// Counts Empty fields functions x 3
 function countEmptyFields() {
     let emptyFieldCount = 0;
 
@@ -44,6 +44,8 @@ function countEmptyFields2() {
     return emptyFieldCount;
 }
     
+
+// BANKOROW 0
 function bankoRow() {
 
 let loopOnOff = 0;
@@ -227,7 +229,7 @@ do {
         
   
        
-// Loop IN ROW
+// LOOP IN ROW
 function checkRuleColumn(col) {
     let emptyFieldCount = 0;
     for(let row = 0; row < 3; row++){
@@ -242,4 +244,7 @@ function checkRuleColumn(col) {
 }
     return emptyFieldCount;
 }
+
+
+
 
