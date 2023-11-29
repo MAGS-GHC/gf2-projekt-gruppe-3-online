@@ -2,21 +2,55 @@ let randomNumbersArray0;
 let randomNumbersArray1;
 let randomNumbersArray2;
 
+let bankocard;
+
+
+
+function banko(){
+
+    
+    //bankocard 0 udfyldes
+    bankocard = "bc0";
+    bankoRow0();
+    bankoRow1();
+    bankoRow2();
+    sortAllColumns();
+
+    //bankocard 1 udfyldes
+    bankocard = "bc1";
+    bankoRow0();
+    bankoRow1();
+    bankoRow2();
+    sortAllColumns();
+
+    //bankocard 2 udfyldes
+    bankocard = "bc2"
+    bankoRow0();
+    bankoRow1();
+    bankoRow2();
+    sortAllColumns(); 
+
+    
+   
+}
+
+
 // BANKO-ROW 0
-function bankoRow() {
+function bankoRow0() {
 
 let loopOnOff = 0;
+//console.log(bankocard);
 
 do {
 
     //Clear all inputs
     for (let i = 0; i < 9; i++) {
-        let elementId = "r0c" + i;
+        let elementId = bankocard + "r0c" + i;
         document.getElementById(elementId).value = "";
     }
    
     randomNumbersArray0 = [];
-   
+   // console.log(bankocard);
 
     for (let i = 0; i < 5; i++) {
         let randomNumber;
@@ -30,7 +64,7 @@ do {
         randomNumbersArray0.push(randomNumber);
     }
 
-    console.log(randomNumbersArray0);
+    //console.log(randomNumbersArray0);
 
     for (let t = 0; t < 5; t++) {
 
@@ -42,11 +76,12 @@ do {
         high = 90; }
 
         if (randomNumbersArray0[t] >= low && randomNumbersArray0[t] <= high) {
-            document.getElementById(`r0c${i}`).value = randomNumbersArray0[t];
+            elementId = bankocard + "r0c" + i;
+            document.getElementById(elementId).value = randomNumbersArray0[t];
            
         }
     }
-
+    //console.log(bankocard);
  }if (countEmptyFields(0) <= 4) {
     loopOnOff = 1;
     
@@ -66,8 +101,10 @@ function bankoRow1() {
     
         //Clear all inputs
         for (let i = 0; i < 9; i++) {
-            let elementId = "r1c" + i;
+            let elementId = bankocard + "r1c" + i;
+        console.log(elementId);
             document.getElementById(elementId).value = "";
+        
         }
        
         randomNumbersArray1 = [];
@@ -85,7 +122,7 @@ function bankoRow1() {
             randomNumbersArray1.push(randomNumber);
         }
     
-        console.log(randomNumbersArray1);
+        //console.log(randomNumbersArray1);
     
         for (let t = 0; t < 5; t++) {
     
@@ -97,10 +134,11 @@ function bankoRow1() {
             high = 90; }
     
             if (randomNumbersArray1[t] >= low && randomNumbersArray1[t] <= high) {
-                document.getElementById(`r1c${i}`).value = randomNumbersArray1[t];
+                elementId = bankocard + "r1c" + i;
+                document.getElementById(elementId).value = randomNumbersArray1[t];
                
             }
-        }
+        } //console.log(bankocard);
     
      }if (countEmptyFields(1) <= 4) {
         loopOnOff = 1;
@@ -122,7 +160,7 @@ do {
         
             //Clear all inputs
             for (let i = 0; i < 9; i++) {
-                let elementId = "r2c" + i;
+                let elementId = bankocard + "r2c" + i;
                 document.getElementById(elementId).value = "";
             }
            
@@ -153,7 +191,8 @@ do {
                 high = 90; }
         
                 if (randomNumbersArray2[t] >= low && randomNumbersArray2[t] <= high) {
-                    document.getElementById(`r2c${i}`).value = randomNumbersArray2[t];
+                    elementId = bankocard + "r2c" + i;
+                    document.getElementById(elementId).value = randomNumbersArray2[t];
                    
                 }
             }
@@ -191,7 +230,7 @@ function checkRuleColumn(col) {
     let emptyFieldCount = 0;
     for(let row = 0; row < 3; row++){
     
-        let elementId = "r" + row + "c" + col;
+        let elementId = bankocard + "r" + row + "c" + col;
             let fieldValue = document.getElementById(elementId).value;
 
         if (fieldValue === "") {
@@ -209,7 +248,7 @@ function countEmptyFields(row) {
     let emptyFieldCount = 0;
 
     for (let i = 0; i < 9; i++) {
-        let elementId = "r" + row + "c" + i;
+        let elementId = bankocard + "r" + row + "c" + i;
         let fieldValue = document.getElementById(elementId).value;
 
         if (fieldValue === "") {
@@ -220,6 +259,7 @@ function countEmptyFields(row) {
     return emptyFieldCount;
 }
 
+// SORT OF ALL COLUMN FUNCTION
 
 function sortAllColumns(){
 
@@ -230,16 +270,18 @@ for(let i = 0; i < 9; i++){
 }
 
 // SORT OF 1 COLUMN FUNCTION
-
-    
-    
+   
 function sortColumn(col){ //Lav det enklere
 
     let arrayColumn = [];
-
-    arrayColumn[0] = document.getElementById("r0c" + col).value;
-    arrayColumn[1] = document.getElementById("r1c" + col).value;
-    arrayColumn[2] = document.getElementById("r2c" + col).value;
+    
+    let elementId = bankocard + "r0c" + col;
+    console.log(elementId);
+    arrayColumn[0] = document.getElementById(elementId).value;
+    elementId = bankocard + "r1c" + col;
+    arrayColumn[1] = document.getElementById(elementId).value;
+    elementId = bankocard + "r2c" + col;
+    arrayColumn[2] = document.getElementById(elementId).value;
 
 
 
@@ -284,14 +326,12 @@ function sortColumn(col){ //Lav det enklere
    }
 
    //if emptyFieldCount === 2 do nothing
-    console.log(arrayColumn);
-
-    document.getElementById("r0c" + col).value = arrayColumn[0];
-    document.getElementById("r1c" + col).value = arrayColumn[1];
-    document.getElementById("r2c" + col).value = arrayColumn[2];
+    //console.log(arrayColumn);
+   elementId = bankocard + "r0c" + col;
+    document.getElementById(elementId).value = arrayColumn[0];
+   elementId = bankocard + "r1c" + col;
+    document.getElementById(elementId).value = arrayColumn[1];
+    elementId = bankocard + "r2c" + col;
+    document.getElementById(elementId).value = arrayColumn[2];
 }
 
-
-
-    
-    

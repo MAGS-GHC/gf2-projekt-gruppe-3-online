@@ -8,7 +8,11 @@ input.addEventListener('click', function() {
   });
 }); 
 
-// Create function that doesn't allow user to write any text or numbers input
 
+function clearGreen() {
+  let clickedElements = document.querySelectorAll('.clicked');
 
-
+  clickedElements.forEach(function(element) {
+      element.classList.remove('clicked');
+  });
+}
