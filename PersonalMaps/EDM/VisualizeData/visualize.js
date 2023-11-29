@@ -1,20 +1,48 @@
 let KPIparsed;
-let KPIobject = new Map();
 let keysArray;
 
 function sortBy() {
     let test = document.getElementById("sortByOptions").value;
-    let sortType = keysArray.indexOf(test);
-    let highLow = document.getElementById("lowHighSelect").value;
-    if (highLow === "highToLow") {
+    //let sortType = keysArray.indexOf(test);
+    /*if (highLow === "highToLow") {
         KPIparsed.sort(function(a, b) {return b[sortType]-a[sortType]})
     }
     else if (highLow === "lowToHigh") {
         KPIparsed.sort(function(a, b) {return a[sortType]-b[sortType]})
-    }
+    }*/
+    sortFunction(keysArray.indexOf(test));
     console.table(KPIparsed);
     repopulateTable();
     //function(a, b), reverse with function(b, a)?
+}
+
+function sortFunction(sortType) {
+    let highLow = document.getElementById("lowHighSelect").value;
+    switch (highLow) {
+        case "lowToHigh":
+            for (i=0;i<KPIparsed.length;i++) {
+                for (j=i; j<KPIparsed.length;j++) {
+                    if (KPIparsed[i][sortType] > KPIparsed[j][sortType]) {
+                        let temp = KPIparsed[j];
+                        KPIparsed[j] = KPIparsed[i];
+                        KPIparsed[i] = temp;
+                    }
+                }
+            }
+            break;
+        case "highToLow":
+            for (i=0;i<KPIparsed.length;i++) {
+                for (j=i; j<KPIparsed.length;j++) {
+                    if (KPIparsed[i][sortType] < KPIparsed[j][sortType]) {
+                        let temp = KPIparsed[j];
+                        KPIparsed[j] = KPIparsed[i];
+                        KPIparsed[i] = temp;
+                    }
+                }
+            }
+            break;
+    }
+    
 }
 
 function repopulateTable() {
@@ -113,11 +141,6 @@ function calcMeanMedian(index) {
 
 
 
-function calcTable() {
-    KPIsource = document.getElementById("KPIfile");
-    console.log(KPIsource);
-    console.log(KPIsource[2])
-    console.table(KPIsource)
-}
+
 
 //sort
