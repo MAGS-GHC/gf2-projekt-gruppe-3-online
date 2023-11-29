@@ -2,7 +2,7 @@ let randomNumbersArray0;
 let randomNumbersArray1;
 let randomNumbersArray2;
 
-// BANKOROW 0
+// BANKO-ROW 0
 function bankoRow() {
 
 let loopOnOff = 0;
@@ -109,7 +109,7 @@ function bankoRow1() {
     } while (loopOnOff === 0);
     }
 
-// BANKO ROW 2
+// BANKO-ROW 2
 
     function bankoRow2() {
 do {
@@ -221,28 +221,21 @@ function countEmptyFields(row) {
 }
 
 
-function test(){
- 
-    let arrayColumn = [];
+function sortAllColumns(){
 
-    arrayColumn[0] = document.getElementById("r0c0").value;
-    arrayColumn[1] = document.getElementById("r1c0").value;
-    arrayColumn[2] = document.getElementById("r2c0").value;
-    
-    
-
-    let x = sortColumn(0);
+for(let i = 0; i < 9; i++){
+    sortColumn(i);
 }
-    //arrayColumn.sort()
 
-    //console.log(arrayColumn);
-
- 
+}
 
 
 
+// SORT OF 1 COLUMN FUNCTION
 
-function sortColumn(col){
+    
+    
+function sortColumn(col){ //Lav det enklere
 
     let emptyFieldCount = 0;
     for(let i = 0; i < 3; i++){
@@ -253,8 +246,49 @@ function sortColumn(col){
         }
        
     } console.log(emptyFieldCount);
-    return emptyFieldCount;
+    
+    let arrayColumn = [];
 
+    arrayColumn[0] = document.getElementById("r0c" + col).value;
+    arrayColumn[1] = document.getElementById("r1c" + col).value;
+    arrayColumn[2] = document.getElementById("r2c" + col).value;
+
+    if(emptyFieldCount === 0){
+
+        console.log(arrayColumn);
+
+    arrayColumn.sort();
+
+    
+
+    } //if emptyFieldCount === 2 do nothing
+
+   if(emptyFieldCount === 1){
+        if (arrayColumn[0] === ""){
+            arrayColumn.sort()
+        }
+        if(arrayColumn[1] === ""){
+            if(arrayColumn[0] > arrayColumn [2]){
+                let x = arrayColumn[0];
+                arrayColumn[0] = arrayColumn[2];
+                arrayColumn[2] = x 
+            }}
+       if (arrayColumn[2] === "") {
+           if (arrayColumn[0] > arrayColumn[1]) {
+            let x = arrayColumn[0];
+            arrayColumn[0] = arrayColumn[1];
+           arrayColumn[1] = x;
+         }   }
+    
+
+
+        
+   }
+    console.log(arrayColumn);
+
+    document.getElementById("r0c" + col).value = arrayColumn[0];
+    document.getElementById("r1c" + col).value = arrayColumn[1];
+    document.getElementById("r2c" + col).value = arrayColumn[2];
     }
 
     
