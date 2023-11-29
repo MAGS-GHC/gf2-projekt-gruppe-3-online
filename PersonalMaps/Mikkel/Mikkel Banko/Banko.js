@@ -174,7 +174,7 @@ do {
 
            for(let c = 0; c < 9; c++){
             if(checkRuleColumn(c) > 2){
-                columnError = columnError + 1;
+                columnError++;
          
             } 
         } 
@@ -229,39 +229,40 @@ for(let i = 0; i < 9; i++){
 
 }
 
-
-
 // SORT OF 1 COLUMN FUNCTION
 
     
     
 function sortColumn(col){ //Lav det enklere
 
-    let emptyFieldCount = 0;
-    for(let i = 0; i < 3; i++){
-        let elementId = "r"+ i + "c" + col;
-        let fieldValue = document.getElementById(elementId).value;
-        if(fieldValue === ""){
-            emptyFieldCount++;
-        }
-       
-    } console.log(emptyFieldCount);
-    
     let arrayColumn = [];
 
     arrayColumn[0] = document.getElementById("r0c" + col).value;
     arrayColumn[1] = document.getElementById("r1c" + col).value;
     arrayColumn[2] = document.getElementById("r2c" + col).value;
 
+
+
+    let emptyFieldCount = 0;
+    for(let i = 0; i < 3; i++){
+        
+        if(arrayColumn[i] === ""){
+            emptyFieldCount++;
+        }
+       
+    }
+    
+    //console.log(emptyFieldCount);
+    
+    
     if(emptyFieldCount === 0){
 
-        console.log(arrayColumn);
+        //console.log(arrayColumn);
 
-    arrayColumn.sort();
-
+        arrayColumn.sort();
+    } 
     
-
-    } //if emptyFieldCount === 2 do nothing
+    //if emptyFieldCount === 2 do nothing
 
    if(emptyFieldCount === 1){
         if (arrayColumn[0] === ""){
@@ -278,18 +279,19 @@ function sortColumn(col){ //Lav det enklere
             let x = arrayColumn[0];
             arrayColumn[0] = arrayColumn[1];
            arrayColumn[1] = x;
-         }   }
-    
-
-
-        
+            }  
+        }    
    }
+
+   //if emptyFieldCount === 2 do nothing
     console.log(arrayColumn);
 
     document.getElementById("r0c" + col).value = arrayColumn[0];
     document.getElementById("r1c" + col).value = arrayColumn[1];
     document.getElementById("r2c" + col).value = arrayColumn[2];
-    }
+}
+
+
 
     
     
