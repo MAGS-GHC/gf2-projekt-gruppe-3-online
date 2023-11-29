@@ -1,3 +1,7 @@
+let randomNumbersArray0;
+let randomNumbersArray1;
+let randomNumbersArray2;
+
 // Counts Empty fields functions x 3
 function countEmptyFields() {
     let emptyFieldCount = 0;
@@ -58,7 +62,7 @@ do {
         document.getElementById(elementId).value = "";
     }
    
-    let randomNumbersArray = [];
+    randomNumbersArray0 = [];
    
 
     for (let i = 0; i < 5; i++) {
@@ -68,12 +72,12 @@ do {
         // udtager random tal og tjekker at alle numre er unikke
         do {
             randomNumber = Math.floor(Math.random() * 90) + 1;
-        } while (randomNumbersArray.includes(randomNumber)); //includes er sand hvis random number findes i arrayet
+        } while (randomNumbersArray0.includes(randomNumber)); //includes er sand hvis random number findes i arrayet
 
-        randomNumbersArray.push(randomNumber);
+        randomNumbersArray0.push(randomNumber);
     }
 
-    console.log(randomNumbersArray);
+    console.log(randomNumbersArray0);
 
     for (let t = 0; t < 5; t++) {
 
@@ -84,8 +88,8 @@ do {
         if (high === 89){
         high = 90; }
 
-        if (randomNumbersArray[t] >= low && randomNumbersArray[t] <= high) {
-            document.getElementById(`r0c${i}`).value = randomNumbersArray[t];
+        if (randomNumbersArray0[t] >= low && randomNumbersArray0[t] <= high) {
+            document.getElementById(`r0c${i}`).value = randomNumbersArray0[t];
            
         }
     }
@@ -98,7 +102,7 @@ do {
 }
 
 
-// BANKOROW 1
+// BANKO-ROW 1
 
 
 function bankoRow1() {
@@ -113,7 +117,7 @@ function bankoRow1() {
             document.getElementById(elementId).value = "";
         }
        
-        let randomNumbersArray = [];
+        randomNumbersArray1 = [];
        
     
         for (let i = 0; i < 5; i++) {
@@ -123,12 +127,12 @@ function bankoRow1() {
             // udtager random tal og tjekker at alle numre er unikke
             do {
                 randomNumber = Math.floor(Math.random() * 90) + 1;
-            } while (randomNumbersArray.includes(randomNumber)); //includes er sand hvis random number findes i arrayet
+            } while (randomNumbersArray0.includes(randomNumber) || randomNumbersArray1.includes(randomNumber)); //includes er sand hvis random number findes i arrayet
     
-            randomNumbersArray.push(randomNumber);
+            randomNumbersArray1.push(randomNumber);
         }
     
-        console.log(randomNumbersArray);
+        console.log(randomNumbersArray1);
     
         for (let t = 0; t < 5; t++) {
     
@@ -139,8 +143,8 @@ function bankoRow1() {
             if (high === 89){
             high = 90; }
     
-            if (randomNumbersArray[t] >= low && randomNumbersArray[t] <= high) {
-                document.getElementById(`r1c${i}`).value = randomNumbersArray[t];
+            if (randomNumbersArray1[t] >= low && randomNumbersArray1[t] <= high) {
+                document.getElementById(`r1c${i}`).value = randomNumbersArray1[t];
                
             }
         }
@@ -169,7 +173,7 @@ do {
                 document.getElementById(elementId).value = "";
             }
            
-            let randomNumbersArray = [];
+            randomNumbersArray2 = [];
            
         
             for (let i = 0; i < 5; i++) {
@@ -179,12 +183,12 @@ do {
                 // udtager random tal og tjekker at alle numre er unikke
                 do {
                     randomNumber = Math.floor(Math.random() * 90) + 1;
-                } while (randomNumbersArray.includes(randomNumber)); //includes er sand hvis random number findes i arrayet
+                } while (randomNumbersArray0.includes(randomNumber) || randomNumbersArray1.includes(randomNumber) || randomNumbersArray2.includes(randomNumber));
         
-                randomNumbersArray.push(randomNumber);
+                randomNumbersArray2.push(randomNumber);
             }
         
-            console.log(randomNumbersArray);
+            console.log(randomNumbersArray2);
         
             for (let t = 0; t < 5; t++) {
         
@@ -195,8 +199,8 @@ do {
                 if (high === 89){
                 high = 90; }
         
-                if (randomNumbersArray[t] >= low && randomNumbersArray[t] <= high) {
-                    document.getElementById(`r2c${i}`).value = randomNumbersArray[t];
+                if (randomNumbersArray2[t] >= low && randomNumbersArray2[t] <= high) {
+                    document.getElementById(`r2c${i}`).value = randomNumbersArray2[t];
                    
                 }
             }

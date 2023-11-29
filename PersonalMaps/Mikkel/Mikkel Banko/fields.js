@@ -7,3 +7,8 @@ input.addEventListener('click', function() {
     this.classList.toggle('clicked');
   });
 }); 
+
+// Create function that doesn't allow user to write any text or numbers input
+
+
+
