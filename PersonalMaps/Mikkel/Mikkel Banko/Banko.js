@@ -2,12 +2,12 @@ let randomNumbersArray0;
 let randomNumbersArray1;
 let randomNumbersArray2;
 
-// Counts Empty fields functions x 3
-function countEmptyFields() {
+// Counts Empty fields functions
+function countEmptyFields(row) {
     let emptyFieldCount = 0;
 
     for (let i = 0; i < 9; i++) {
-        let elementId = "r0c" + i;
+        let elementId = "r" + row + "c" + i;
         let fieldValue = document.getElementById(elementId).value;
 
         if (fieldValue === "") {
@@ -17,37 +17,6 @@ function countEmptyFields() {
 
     return emptyFieldCount;
 }
-
-function countEmptyFields1() {
-    let emptyFieldCount = 0;
-
-    for (let i = 0; i < 9; i++) {
-        let elementId = "r1c" + i;
-        let fieldValue = document.getElementById(elementId).value;
-
-        if (fieldValue === "") {
-            emptyFieldCount++;
-        }
-    }
-
-    return emptyFieldCount;
-}
-
-function countEmptyFields2() {
-    let emptyFieldCount = 0;
-
-    for (let i = 0; i < 9; i++) {
-        let elementId = "r2c" + i;
-        let fieldValue = document.getElementById(elementId).value;
-
-        if (fieldValue === "") {
-            emptyFieldCount++;
-        }
-}
-
-    return emptyFieldCount;
-}
-    
 
 // BANKOROW 0
 function bankoRow() {
@@ -94,7 +63,7 @@ do {
         }
     }
 
- }if (countEmptyFields() <= 4) {
+ }if (countEmptyFields(0) <= 4) {
     loopOnOff = 1;
     
     }
@@ -149,7 +118,7 @@ function bankoRow1() {
             }
         }
     
-     }if (countEmptyFields1() <= 4) {
+     }if (countEmptyFields(1) <= 4) {
         loopOnOff = 1;
         
         }
@@ -205,7 +174,7 @@ do {
                 }
             }
         
-         }if (countEmptyFields2() <= 4) {
+         }if (countEmptyFields(2) <= 4) {
             loopOnOff = 1;
             
             }
