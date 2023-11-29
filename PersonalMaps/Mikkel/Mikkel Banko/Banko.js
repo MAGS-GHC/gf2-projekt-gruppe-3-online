@@ -2,22 +2,6 @@ let randomNumbersArray0;
 let randomNumbersArray1;
 let randomNumbersArray2;
 
-// Counts Empty fields functions
-function countEmptyFields(row) {
-    let emptyFieldCount = 0;
-
-    for (let i = 0; i < 9; i++) {
-        let elementId = "r" + row + "c" + i;
-        let fieldValue = document.getElementById(elementId).value;
-
-        if (fieldValue === "") {
-            emptyFieldCount++;
-        }
-    }
-
-    return emptyFieldCount;
-}
-
 // BANKOROW 0
 function bankoRow() {
 
@@ -183,7 +167,7 @@ do {
     }while (checkEmptyColumn() > 0);
 } 
 
-        //EMPTY COLUMN FUNCTION
+ //EMPTY COLUMN FUNCTION
         
         function checkEmptyColumn(){
            let columnError = 0;
@@ -220,4 +204,28 @@ function checkRuleColumn(col) {
 
 
 
+// Counts Empty fields functions
+function countEmptyFields(row) {
+    let emptyFieldCount = 0;
 
+    for (let i = 0; i < 9; i++) {
+        let elementId = "r" + row + "c" + i;
+        let fieldValue = document.getElementById(elementId).value;
+
+        if (fieldValue === "") {
+            emptyFieldCount++;
+        }
+    }
+
+    return emptyFieldCount;
+}
+
+
+function test(){
+    let x = document.getElementById("r0c0").value;
+    let y = document.getElementById("r1c0").value;
+    let z = document.getElementById("r2c0").value;
+    console.log(x);
+    console.log(y);
+    console.log(z);
+}
