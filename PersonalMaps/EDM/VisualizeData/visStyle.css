@@ -10,7 +10,11 @@ body {
 
 .KPITable {
     display: grid;
-    padding: 10px;
     height: 500px;
     overflow: auto;
+}
+
+th,td {
+    border: solid 1px;
+    text-align: center;
 }

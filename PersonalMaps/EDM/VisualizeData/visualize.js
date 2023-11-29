@@ -18,16 +18,30 @@ let keysArray;
 //sort by orders
 
 function sortBy() {
-    let sortType = document.getElementById("sortByOptions").value;
+    let test = document.getElementById("sortByOptions").value;
+    let sortType = keysArray.indexOf(test);
     let highLow = document.getElementById("lowHighSelect").value;
     if (highLow === "highToLow") {
-        testValueArr.sort(function(a, b) {return b[sortType]-a[sortType]})
+        KPIparsed.sort(function(a, b) {return b[sortType]-a[sortType]})
     }
     else if (highLow === "lowToHigh") {
-        testValueArr.sort(function(a, b) {return a[sortType]-b[sortType]})
+        KPIparsed.sort(function(a, b) {return a[sortType]-b[sortType]})
     }
-    console.table(testValueArr);
+    console.table(KPIparsed);
+    repopulateTable();
     //function(a, b), reverse with function(b, a)?
+}
+
+function repopulateTable() {
+    let table = document.getElementById("KPITable");
+    console.log(table.rows.length)
+    for (row=0;row<(KPIparsed.length);row++) { 
+        for (cell=0;cell<keysArray.length;cell++) {
+            table.rows[row+1].cells[cell].innerHTML = KPIparsed[row][cell];
+            //+1row to not overwrite headers
+        }
+    }
+    console.log(table.rows.length)
 }
 
 async function KPIExcelParse() {
@@ -47,6 +61,7 @@ async function KPIExcelParse() {
 
 function createSortOptions() {
     let optionList = document.getElementById("sortByOptions");
+    optionList.innerHTML = "";
     for (i=0;i<keysArray.length;i++) {
         let newOption = keysArray[i];
         let temp = document.createElement("option");
