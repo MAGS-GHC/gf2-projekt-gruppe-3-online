@@ -1,5 +1,6 @@
 let KPIparsed;
 let KPIobject = new Map();
+let keysArray;
 //object constructor
 //function KPI(dateIn, ordersIn, precisionIn, faultsIn) {
 //    this.dateID = dateIn;
@@ -34,14 +35,50 @@ async function KPIExcelParse() {
     await readXlsxFile(KPIsource.files[0]).then(function(rows) {
         //rows an array of rows
         //each row an array of cells
-        KPIparsed = rows;
+        KPIparsed = rows;    
+        keysArray = KPIparsed[0];
+        KPIparsed.shift();
     })
-    createObjectKeys();
+    createSortOptions();
+    createKPITable();
+    //createObjectKeys();
     
 }
 
-function createObjectKeys() { //does nothing yet, except show top values
-    let keysArray = KPIparsed[0]
+function createSortOptions() {
+    let optionList = document.getElementById("sortByOptions");
+    for (i=0;i<keysArray.length;i++) {
+        let newOption = keysArray[i];
+        let temp = document.createElement("option");
+        temp.textContent = newOption;
+        temp.value = newOption;
+        temp.id = keysArray[i]
+        optionList.appendChild(temp)
+    }
+}
+
+function createKPITable() {
+    let table = document.getElementById("KPITable");
+    table.innerHTML = "";
+    let colHead = table.createTHead();
+    let headRow = colHead.insertRow(0)
+    for (i=0;i<keysArray.length;i++) {
+        currentCell = headRow.insertCell(i)
+        currentCell.innerHTML = keysArray[i]
+        console.log("colHead")
+    }
+    for (i=0;i<KPIparsed.length;i++) {
+        currentRow = table.insertRow(i+1)
+        for (j=0;j<keysArray.length;j++) {
+            currentCell = currentRow.insertCell(j);
+            currentCell.innerHTML = KPIparsed[i][j];
+        }
+    }
+
+}
+
+/*function createObjectKeys() { //does nothing yet, except show top values
+
     console.log("craaaarrrgh")
     console.log(keysArray)
     
@@ -50,17 +87,18 @@ function createObjectKeys() { //does nothing yet, except show top values
     console.log(KPIparsed.length)
 
     //loop times keyvalues
-    for (keyNums=0; keyNums<keysArray.length; keyNums++) {
-        console.log("Outer loop")
-        KPIobject.set(keysArray[keyNums])
-        let tempArray = [];
-        KPIparsed.forEach(element => {
-            tempArray.push(element[keyNums]);
-        });
-        console.log(tempArray)
-    }
-    console.log(KPIobject)
-}
+    //for (keyNums=0; keyNums<keysArray.length; keyNums++) {
+    //    console.log("Outer loop")
+    //    let tempArray = [];
+    //    KPIparsed.forEach(element => {
+    //        tempArray.push(element[keyNums]);
+    //        //KPIobject.keysArray[keyNums].push(element[keyNums])
+    //    });
+    //    KPIobject.set(keysArray[keyNums], tempArray)
+    //    console.log(tempArray)
+    //}
+    //console.log(KPIobject)
+}*/
 
 
 
