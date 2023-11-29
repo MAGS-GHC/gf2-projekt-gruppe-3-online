@@ -29,16 +29,14 @@ function banko(){
     bankoRow1();
     bankoRow2();
     sortAllColumns(); 
-
     
-   
 }
 
 
 // BANKO-ROW 0
 function bankoRow0() {
 
-let loopOnOff = 0;
+
 //console.log(bankocard);
 
 do {
@@ -82,11 +80,9 @@ do {
         }
     }
     //console.log(bankocard);
- }if (countEmptyFields(0) <= 4) {
-    loopOnOff = 1;
-    
-    }
-} while (loopOnOff === 0);
+ }
+
+} while (countEmptyFields(0) > 4);
 }
 
 
@@ -95,7 +91,7 @@ do {
 
 function bankoRow1() {
 
-    let loopOnOff = 0;
+    
     
     do {
     
@@ -140,11 +136,9 @@ function bankoRow1() {
             }
         } //console.log(bankocard);
     
-     }if (countEmptyFields(1) <= 4) {
-        loopOnOff = 1;
-        
-        }
-    } while (loopOnOff === 0);
+     }
+    
+    } while (countEmptyFields(1) > 4);
     }
 
 // BANKO-ROW 2
@@ -152,9 +146,6 @@ function bankoRow1() {
     function bankoRow2() {
 do {
     
-
-        let loopOnOff = 0;
-        
        
         do {
         
@@ -197,11 +188,9 @@ do {
                 }
             }
         
-         }if (countEmptyFields(2) <= 4) {
-            loopOnOff = 1;
-            
-            }
-        } while (loopOnOff === 0);
+         }
+         
+        } while (countEmptyFields(2) > 4);
         
     }while (checkEmptyColumn() > 0);
 } 
@@ -334,4 +323,5 @@ function sortColumn(col){ //Lav det enklere
     elementId = bankocard + "r2c" + col;
     document.getElementById(elementId).value = arrayColumn[2];
 }
+
 
