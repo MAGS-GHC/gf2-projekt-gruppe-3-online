@@ -7,3 +7,14 @@ body {
     background-image: url("/PersonalMaps/EDM/VisualizeData/bunMetric.jpeg");
     background-repeat: no-repeat;
 }
+
+.KPITable {
+    display: grid;
+    height: 500px;
+    overflow: auto;
+}
+
+th,td {
+    border: solid 1px;
+    text-align: center;
+}

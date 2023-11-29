@@ -13,17 +13,15 @@
     <div class="fileSelect">
         <input type="file" id="KPIfile" accept=".xlsx" oninput="KPIExcelParse()" required>
     </div>
-    <div>
-        <button onclick="calcTable()">This is Button. Nice to meet you</button>
-    </div>
 <br><br>
+<div class="KPItableDiv">
+    <table id="KPITable" class="KPITable">
+
+    </table>
+</div>
 
     <div class="sortOptions">Sort by: 
         <select id="sortByOptions" onChange="sortBy()">
-            <option value="dateID">Date</option>
-            <option value="orders">Orders</option>
-            <option value="precision">Precision</option>
-            <option value="faults">Faults</option>
         </select>
         <select id="lowHighSelect" onChange="sortBy()">
             <option value="highToLow">High to Low</option>
