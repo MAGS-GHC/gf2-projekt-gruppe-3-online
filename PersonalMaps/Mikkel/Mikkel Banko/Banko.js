@@ -222,10 +222,40 @@ function countEmptyFields(row) {
 
 
 function test(){
-    let x = document.getElementById("r0c0").value;
-    let y = document.getElementById("r1c0").value;
-    let z = document.getElementById("r2c0").value;
-    console.log(x);
-    console.log(y);
-    console.log(z);
+ 
+    let arrayColumn = [];
+
+    arrayColumn[0] = document.getElementById("r0c0").value;
+    arrayColumn[1] = document.getElementById("r1c0").value;
+    arrayColumn[2] = document.getElementById("r2c0").value;
+    
+    
+
+    let x = sortColumn(0);
 }
+    //arrayColumn.sort()
+
+    //console.log(arrayColumn);
+
+ 
+
+
+
+
+function sortColumn(col){
+
+    let emptyFieldCount = 0;
+    for(let i = 0; i < 3; i++){
+        let elementId = "r"+ i + "c" + col;
+        let fieldValue = document.getElementById(elementId).value;
+        if(fieldValue === ""){
+            emptyFieldCount++;
+        }
+       
+    } console.log(emptyFieldCount);
+    return emptyFieldCount;
+
+    }
+
+    
+    
