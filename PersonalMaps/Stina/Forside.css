@@ -8,6 +8,14 @@ body {
    .Menubar {
 
     display:grid;
-    text-align: center;
+    text-align: right;
     margin: 0 auto
+   }
+
+   .menubar2 {
+
+    display:grid;
+    text-align: right;
+    margin: 0 auto
+
    }
