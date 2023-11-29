@@ -153,9 +153,12 @@ function bankoRow1() {
 // BANKO ROW 2
 
     function bankoRow2() {
+do {
+    
 
         let loopOnOff = 0;
         
+       
         do {
         
             //Clear all inputs
@@ -201,29 +204,31 @@ function bankoRow1() {
             
             }
         } while (loopOnOff === 0);
-        }
+        
+    }while (checkEmptyColumn() > 0);
+} 
 
+        //EMPTY COLUMN FUNCTION
         
         function checkEmptyColumn(){
-           let columnError = [];
+           let columnError = 0;
+
            for(let c = 0; c < 9; c++){
-            if(checkRule(c) > 2){
-                columnError[c] = 1;
-           }else {
-            columnError[c] = 0
-            
+            if(checkRuleColumn(c) > 2){
+                columnError = columnError + 1;
+         
             } 
-            
-        } console.log(columnError); 
+        } 
+        
+        console.log(columnError); 
+        return columnError;
+    
     }
         
-
+  
        
-            
-      
-
-// Loop in row
-function checkRule(col) {
+// Loop IN ROW
+function checkRuleColumn(col) {
     let emptyFieldCount = 0;
     for(let row = 0; row < 3; row++){
     
