@@ -1,42 +1,39 @@
-A: CREATE INPUT FIELDS
+A: THE RULES OF A BANKOCARD
 
-1. xCreate input grid 3 rows, 9 columns
-2. xGive inputs indvidual id's
-3. Make onclick function that turns baggroundcolor green
-4. Attach onclick backgroundcolor: "green" function to all input fields
+1. 3 rows 9 columns
+2. Column 1: (1..9) | Column 2: (10..19) | Column 3: (20..29) | Column 4: (30..39) | Column 5: (40..49) | Column 6: (50..59) | Column 7: (60..69) | Column 8: (70..79) | Column 9: (80..90)
+3. Column 9 goes to 90 
+4. Each row should contain 5 numbers and placed in column value-group (fx. 23 is placed in column 3 and 46 in column 5)
+5. There's 15 numbers in total on each bankocard
+6. Minimum 1 number in each column and max 3
+7. Each column should be sorted from lowest to highest number if there's more than 1 number in the column
+8. No number is displayed twice on bankocard
 
-B: CREATE BUTTON
+B: BANKOCARD0 INPUTFIELDS
 
-1. Create button with onclick function that inputs test number to input box row 0, column 0
-2. Lock fields when function is exceuted
+1. Create container with 3x9 inputs (27 inputs)
+2. Create grid .bankoCard0 in CSS to ensure 3 rows 9 columns grid and give input class div "bankoCard0"
+3. Give bankocard0 unique id = bc0 + row and column indentifyer r0c0(input1), r0c1(input2) etc.
+4. Test that input fields are working
 
-C: CREATE RANDOM NUMBER FUNCTION
+C: CREATE GLOBAL VARIABLES
 
-15 numbers and 1 in each number group 1-9, 10-19.
+1. Create let randomNumbersArray0, randomNumbersArray1 and randomNumbersArray2 in global scope so it can be accessed by multiple functions
+2. Create let bankocard in global scope
 
-1 randomnumber to each group
+D: BANKO FUNCTION
 
+1. Define bankocard with id of bankoRow0 = "bc0"
+2. Run functions bankoRow0, bankoRow1, bankoRow2 and sortAllColumns
+3. When all function has been run in bc0, set bankocard id to bankRow1 = "bc1"
+4. When all functions has been run in bc1, set id of bankocard to bankoRow2 = "bc2" and run all function
 
+E: BANKO-ROW 0
 
-1. Test that a random number between 1-9 gets written in row 0, column 0
-2. Test that random number from 10-19 is written in row 1, column 0
-3. test random number 20-29 row 2, column 0
-5. Input only 5 numbers in random columns between 0-8
-6. Make sure the same number can't accur twice
-
-
-D: CREATE ID FUNCTION
-
-1. Create input text field
-2. Save numbers/plate by id of user
-3. clear plate a give new random numbers with new id
-4. Only let valid if aA-zZ letters
-
-E: CSS
-
-1. Style in Figma
-
-D: EXTRA FUNCTIONS
-
-1. Alert when BANKO
-2. execute button functions on "Enter"
+1. Make function bankorow0
+2. Create do while loop that keeps looping the entire function until there's only 4 empty fields in row 0
+3. Start function by clearing all inputs with an empty string
+4. Define randomNumbersArray0 as an empty array
+5. Create for loop from 0 to 5
+6. Create let randomNumber
+7. 

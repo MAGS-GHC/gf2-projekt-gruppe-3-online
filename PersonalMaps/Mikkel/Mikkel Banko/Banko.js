@@ -1,7 +1,4 @@
-
-
-
-// Erklæring af globale variabler kan anvendes på tværs af alle funktioner
+// Erklæring af globale variabler (Global Scope) kan anvendes på tværs af alle funktioner
 let randomNumbersArray0;
 let randomNumbersArray1;
 let randomNumbersArray2;
@@ -40,7 +37,7 @@ function banko(){
 // BANKO-ROW 0
 function bankoRow0() {
 
-// Do-while funktionen udføres indtil der 5 tal i rækken (to tilfældige kan tilhøre samme column)
+// Do-while funktionen udføres indtil der er 5 tal i rækken 
 do {
 
     //Clear all inputs
