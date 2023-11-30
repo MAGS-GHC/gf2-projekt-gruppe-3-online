@@ -136,7 +136,7 @@ function calcMeanMedian(index) {
     return "Mean: " + Math.round(mean*100)/100 + "\nMedian: " + Math.round(median*100)/100;
 }
 
-
+function simplePlotDisplay() {}
 
 
 
