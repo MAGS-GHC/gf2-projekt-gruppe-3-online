@@ -4,18 +4,3 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
    }
-
-   .Menubar {
-
-    display:grid;
-    grid-template-columns: auto auto ;
-    text-align: right;
-    margin: 0 auto
-   }
-
-#Sange {
-
-position: fixed;
-bottom: 20px;
-left: 20px;
-}
