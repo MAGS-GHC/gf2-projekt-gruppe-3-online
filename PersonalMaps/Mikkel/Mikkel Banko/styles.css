@@ -1,4 +1,27 @@
-.bankoCard1 {
+.bankoCard0 {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto auto auto auto;
+    grid-template-rows: auto auto auto;
+    gap: 10px;
+    padding: 10px;
+    text-align: center;
+    border-style: solid;
+   }
+
+
+  .bankoCard0 input {
+    background-color: white;
+    
+  }
+  
+  .bankoCard0 input.clicked {
+    background-color: green;
+  }
+
+
+
+
+  .bankoCard1 {
     display: grid;
     grid-template-columns: auto auto auto auto auto auto auto auto auto;
     grid-template-rows: auto auto auto;
@@ -17,8 +40,6 @@
   .bankoCard1 input.clicked {
     background-color: green;
   }
-
-
 
 
   .bankoCard2 {
@@ -40,7 +61,6 @@
   .bankoCard2 input.clicked {
     background-color: green;
   }
-
 
 
   .blank-line{
