@@ -31,9 +31,40 @@ D: BANKO FUNCTION
 E: BANKO-ROW 0
 
 1. Make function bankorow0
-2. Create do while loop that keeps looping the entire function until there's only 4 empty fields in row 0
+2. Create do while loop that keeps looping the entire function until there's only 4 empty fields in row 0 (parameter)
 3. Start function by clearing all inputs with an empty string
 4. Define randomNumbersArray0 as an empty array
-5. Create for loop from 0 to 5
+5. Create for loop from 0 to 5 {
 6. Create let randomNumber
-7. 
+7. Do-while loop that keeps looping until we have 5 unique numbers from 1..90
+8. Push the the 5 unique numbers into randomNumbersArray0 }
+9. Create for loop that loops from 0 to 5 {
+10. Create a loop in loop that from 0-9
+11. Define low and high value (fx round 0 low is 0 and high is 9, round 1 low is 10 and high is 19)
+12. Make if statement to ensure that 90 is included in last column
+13. Make if statement that places the 5 numbers in randomNumbersArray0 in the correct column based on its value }
+
+
+F: BANKO-ROW 1
+
+1. Make function bankoRow1
+2. Repeat step E2 but change countEmptyFields parameter to 1 for new row
+3. Repeat step E3, but change id to "r1c"
+4. Define randomNumbersArray1 as an empty array
+5. Repeat step E5
+6. Repeat step E6
+7. Repeat step E7, but this time run do-while loop until randomNumbersArray0 or randomNumbersArray1 both are false
+8. Push the 5 random numbers into randomNumbersArray1
+9. Repeat step E9
+10. Repeat step E10
+11. Repeat step E11
+12. Repeat step E12
+13. Repeat step 13 but use randomNumbersArray1 and "r1c"
+
+G: Bank-Row 3
+
+1. Nearly identical with E and F steps, but with randomNumbersArray2 and "r2c" naming
+1. 2 Change countEmptyFields parameter to 2
+3. In step E7 run do-while loop until randomNumbersArray0 OR randomNumbersArray1 OR randomNumbersArray2 all are false
+
+H: 
