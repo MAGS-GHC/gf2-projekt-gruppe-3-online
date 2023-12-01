@@ -50,7 +50,8 @@ do {
    
 
     for (let i = 0; i < 5; i++) {
-        let randomNumber;
+        
+
 
 
         // Udtager random tal og tjekker at tal er unikke.
@@ -63,21 +64,20 @@ do {
 
     for (let t = 0; t < 5; t++) {
 
-    for (let i = 0; i < 9; i++) {
-        let low = i * 10;
-        let high = low + 9
+        for (let i = 0; i < 9; i++) {
+            low = i * 10
+            high = low + 9
     
-        if (high === 89){
-        high = 90; }
+            if (high === 89){ high = 90; }
 
-        if (randomNumbersArray0[t] >= low && randomNumbersArray0[t] <= high) {
-            elementId = bankocard + "r0c" + i;
-            document.getElementById(elementId).value = randomNumbersArray0[t];
+            if (randomNumbersArray0[t] >= low && randomNumbersArray0[t] <= high) {
+                elementId = bankocard + "r0c" + i;
+                document.getElementById(elementId).value = randomNumbersArray0[t];
            
+            }
         }
-    }
    
- }
+    }
 
 } while (countEmptyFields(0) > 4); // Max 4 tomme columns (minimum 5 tal i hver row) ellers udtages nye tal (ingen tal i samme talgruppe(1..9, 10..19 osv.))
 }
@@ -102,7 +102,7 @@ function bankoRow1() {
        
     
         for (let i = 0; i < 5; i++) {
-            let randomNumber;
+        
     
     
             // udtager random tal og tjekker at tal er unikke inklusiv tal i row 0, ellers udtages nyt tal
@@ -115,21 +115,20 @@ function bankoRow1() {
     
        for (let t = 0; t < 5; t++) {
     
-        for (let i = 0; i < 9; i++) {
-            let low = i * 10;
-            let high = low + 9
+            for (let i = 0; i < 9; i++) {
+                low = i * 10;
+                high = low + 9
         
-            if (high === 89){
-            high = 90; }
+                if (high === 89){ high = 90; }
     
-            if (randomNumbersArray1[t] >= low && randomNumbersArray1[t] <= high) {
-                elementId = bankocard + "r1c" + i;
-                document.getElementById(elementId).value = randomNumbersArray1[t];
+                if (randomNumbersArray1[t] >= low && randomNumbersArray1[t] <= high) {
+                    elementId = bankocard + "r1c" + i;
+                    document.getElementById(elementId).value = randomNumbersArray1[t];
                
-            }
-        } 
+                }
+            } 
     
-     }
+        }
     
     } while (countEmptyFields(1) > 4);
     }
@@ -152,7 +151,7 @@ do {
            
         
             for (let i = 0; i < 5; i++) {
-                let randomNumber;
+             
         
         
                // udtager random tal og tjekker at tal er unikke inklusiv tal i row 0 og row 1, ellers udtages nyt tal
@@ -166,21 +165,20 @@ do {
 
             for (let t = 0; t < 5; t++) {
         
-            for (let i = 0; i < 9; i++) {
-                let low = i * 10;
-                let high = low + 9
+                for (let i = 0; i < 9; i++) {
+                    low = i * 10;
+                    high = low + 9
             
-                if (high === 89){
-                high = 90; }
+                    if (high === 89){high = 90; }
         
-                if (randomNumbersArray2[t] >= low && randomNumbersArray2[t] <= high) {
-                    elementId = bankocard + "r2c" + i;
-                    document.getElementById(elementId).value = randomNumbersArray2[t];
+                    if (randomNumbersArray2[t] >= low && randomNumbersArray2[t] <= high) {
+                        elementId = bankocard + "r2c" + i;
+                        document.getElementById(elementId).value = randomNumbersArray2[t];
                    
+                    }
                 }
-            }
         
-         }
+            }
 
         } while (countEmptyFields(2) > 4);
         
@@ -278,7 +276,7 @@ function sortColumn(col){
     if(emptyFieldCount === 0){
 
 
-    arrayColumn.sort();
+    arrayColumn.sort(); // Hvis o tomme felter sorterer vi bare de 3 tal
     } 
     
     //if emptyFieldCount === 2 do nothing
