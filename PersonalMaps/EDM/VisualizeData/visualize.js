@@ -1,5 +1,6 @@
-let KPIparsed;
-let keysArray;
+let KPIparsed; //contains parsed KPI, array (length) of array (categories)
+let keysArray; //contains category names, cut from KPIparsed
+let rangeOf = []; //contains range of category values, max to min, for graph
 
 function sortBy() {
     let test = document.getElementById("sortByOptions").value;
@@ -80,7 +81,18 @@ function createSortOptions() {
         let temp = document.createElement("option");
         temp.textContent = newOption;
         temp.value = newOption;
-        temp.id = keysArray[i]
+        temp.id = "x: " + keysArray[i]
+        optionList.appendChild(temp)
+    }
+    
+    optionList = document.getElementById("yAxis");
+    optionList.innerHTML = "";
+    for (i=0;i<keysArray.length;i++) {
+        let newOption = keysArray[i];
+        let temp = document.createElement("option");
+        temp.textContent = newOption;
+        temp.value = newOption;
+        temp.id = "y: " + keysArray[i]
         optionList.appendChild(temp)
     }
 }
@@ -96,7 +108,6 @@ function createKPITable() {
         currentCell.innerHTML = keysArray[i]
         currentCell = meanModeRow.insertCell(i)
         currentCell.innerHTML = calcMeanMedian(i);
-        console.log("colHead")
     }
     for (i=0;i<KPIparsed.length;i++) {
         currentRow = table.insertRow(i+2)
@@ -115,13 +126,12 @@ function calcMeanMedian(index) {
         tempSum += element[index];
     });
     let mean = tempSum / KPIparsed.length;
-    console.log(mean)
 
     let tempArray = [];
     KPIparsed.forEach(element => {
         tempArray.push(element[index])
     });
-    tempArray.sort(function(a, b) {return b-a})
+    tempArray.sort(function(a, b) {return a-b})
     //tempArray sorted
     let median;
     if (tempArray.length % 2 === 0) {
@@ -130,13 +140,18 @@ function calcMeanMedian(index) {
     else {
         median = tempArray[Math.floor(tempArray.length/2)]
     }
-    console.log(median)
-    console.log(tempArray)
-    console.log((tempArray.length/2))
+    rangeOf.push([tempArray[0],tempArray[tempArray.length-1]])
     return "Mean: " + Math.round(mean*100)/100 + "\nMedian: " + Math.round(median*100)/100;
 }
 
-function simplePlotDisplay() {}
+function simplePlotDisplay() {
+    let xTemp = document.getElementById("sortByOptions").value;
+    console.log(xTemp)
+    console.log(keysArray.indexOf(xTemp))
+    let yTemp = document.getElementById("yAxis").value;
+    console.log(yTemp)
+    console.log(keysArray.indexOf(yTemp))
+}
 
 
 

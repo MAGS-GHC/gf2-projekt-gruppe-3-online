@@ -6,28 +6,39 @@
     <title>KPI Visualized</title>
     <script defer src="/PersonalMaps/EDM/VisualizeData/visualize.js"></script>
     <script defer src="https://unpkg.com/read-excel-file@5.x/bundle/read-excel-file.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
     <link rel="stylesheet" href="/PersonalMaps/EDM/VisualizeData/visStyle.css">
     <link rel="icon" type="image/x-icon" href="/PersonalMaps/EDM/VisualizeData/abacus.png">
 </head>
-<body>
-    <div class="fileSelect">
-        <input type="file" id="KPIfile" accept=".xlsx,.xls" oninput="KPIExcelParse()" required>
-    </div>
-<br><br>
-<div class="KPItableDiv">
-    <table id="KPITable" class="KPITable">
 
-    </table>
+<body>
+
+<div class="fileSelect">
+    <input type="file" id="KPIfile" accept=".xlsx,.xls" oninput="KPIExcelParse()" required>
+</div>
+<div class="KPItableDiv">
+    <table id="KPITable" class="KPITable"></table>
 </div>
 
-    <div class="sortOptions">Sort by: 
-        <select id="sortByOptions" onChange="sortBy()">
-        </select>
-        <select id="lowHighSelect" onChange="sortBy()">
-            <option value="highToLow">High to Low</option>
-            <option value="lowToHigh">Low to High</option>
-        </select>
-    </div>
+<div class="sortOptions">Sort by: 
+    <select id="sortByOptions" onChange="sortBy()">
+        <option value="">--x-axis/category--</option>
+    </select>
+    <select id="lowHighSelect" onChange="sortBy()">
+        <option value="highToLow">High to Low</option>
+        <option value="lowToHigh">Low to High</option>
+    </select>
+    <select id="yAxis">
+        <option value="">--y-axis--</option>
+    </select>
+    <select id="graphType" onChange="simplePlotDisplay()">
+        <option value="">--graph-type--</option>
+    </select>
+</div>
+
+<div class="canvas">
+    <canvas id="myChart" style="width:100%;max-width:700px"></canvas>
+</div>
 
 </body>
 </html>
