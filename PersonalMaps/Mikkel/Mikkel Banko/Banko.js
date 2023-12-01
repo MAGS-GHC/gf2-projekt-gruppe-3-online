@@ -131,7 +131,7 @@ function bankoRow1() {
     
      }
     
-    } while (countEmptyFields(1) > 4); // 
+    } while (countEmptyFields(1) > 4);
     }
 
 // BANKO-ROW 2
