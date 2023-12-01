@@ -64,10 +64,10 @@ F: BANKO-ROW 1
 G: Bank-Row 3
 
 1. Do-while loop that runs until there's more than 0 numbers in column
-1. Nearly identical with E and F steps, but with randomNumbersArray2 and "r2c" naming
-2. Change countEmptyFields parameter to 2
-3. In step E7 run do-while loop until randomNumbersArray0 OR randomNumbersArray1 OR randomNumbersArray2 all are false
-4. 
+2. Nearly identical with E and F steps, but with randomNumbersArray2 and "r2c" naming
+3. Change countEmptyFields parameter to 2
+4. In step E7 run do-while loop until randomNumbersArray0 OR randomNumbersArray1 OR randomNumbersArray2 all are false
+5. 
 
 
 H: 
