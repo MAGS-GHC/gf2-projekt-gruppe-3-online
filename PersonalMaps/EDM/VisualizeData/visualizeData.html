@@ -28,16 +28,17 @@
         <option value="highToLow">High to Low</option>
         <option value="lowToHigh">Low to High</option>
     </select>
-    <select id="yAxis">
+    <select id="yAxis" onChange="simplePlotDisplay()">
         <option value="">--y-axis--</option>
     </select>
     <select id="graphType" onChange="simplePlotDisplay()">
-        <option value="">--graph-type--</option>
+        <option value="line">Line Graph</option>
+        <option value="scatter">Scatter Plot</option>
     </select>
 </div>
 
-<div class="canvas">
-    <canvas id="myChart" style="width:100%;max-width:700px"></canvas>
+<div id="canvasDiv" class="canvas">
+    <canvas id="myChart"></canvas>
 </div>
 
 </body>

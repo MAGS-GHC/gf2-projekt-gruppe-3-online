@@ -25,3 +25,8 @@ th,td {
     border: solid 1px;
     text-align: center;
 }
+
+.canvas {
+    width: 100%;
+    max-width: 700px;
+}

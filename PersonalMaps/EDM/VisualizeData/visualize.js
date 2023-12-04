@@ -14,6 +14,7 @@ function sortBy() {
     sortFunction(keysArray.indexOf(test));
     console.table(KPIparsed);
     repopulateTable();
+    simplePlotDisplay()
     //function(a, b), reverse with function(b, a)?
 }
 
@@ -73,7 +74,7 @@ async function KPIExcelParse() {
     
 }
 
-function createSortOptions() {
+function createSortOptions() { //improve, reduce repetition
     let optionList = document.getElementById("sortByOptions");
     optionList.innerHTML = "";
     for (i=0;i<keysArray.length;i++) {
@@ -145,15 +146,50 @@ function calcMeanMedian(index) {
 }
 
 function simplePlotDisplay() {
-    let xTemp = document.getElementById("sortByOptions").value;
-    console.log(xTemp)
-    console.log(keysArray.indexOf(xTemp))
-    let yTemp = document.getElementById("yAxis").value;
-    console.log(yTemp)
-    console.log(keysArray.indexOf(yTemp))
+    document.querySelector("#canvasDiv").innerHTML = '<canvas id="myChart"></canvas>';
+    let xTemp = keysArray.indexOf(document.getElementById("sortByOptions").value);
+    let yTemp = keysArray.indexOf(document.getElementById("yAxis").value);
+    let xAxis = [];
+    let yAxis = [];
+    let dataSet = [];
+    switch (document.getElementById("graphType").value) {
+        case "line":
+            for (i=0;i<KPIparsed.length;i++) {
+                xAxis.push(KPIparsed[i][xTemp])
+                yAxis.push(KPIparsed[i][yTemp])
+            }
+            new Chart("myChart", {
+                type: document.getElementById("graphType").value,
+                data: {
+                    labels: xAxis,
+                  datasets: [{
+                    pointBackgroundColor: "rgb(0,0,255)",
+                    data: yAxis
+                  }]
+                },
+                options: {
+                  legend: {display: false}
+                }
+              })
+              break;
+        case "scatter":
+            for (i=0;i<KPIparsed.length;i++) {
+                dataSet.push({x:KPIparsed[i][xTemp],y:KPIparsed[i][yTemp]})
+            }
+            new Chart("myChart", {
+                type: document.getElementById("graphType").value,
+                data: {
+                  datasets: [{
+                    pointBackgroundColor: "rgb(0,0,255)",
+                    data: dataSet
+                  }]
+                },
+                options: {
+                  legend: {display: false}
+                }
+              });
+    }
 }
-
-
 
 
 
