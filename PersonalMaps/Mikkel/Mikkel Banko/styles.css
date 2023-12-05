@@ -1,65 +1,102 @@
+.backGround{
+  
+  position: absolute;
+  width: 100vw; /* 100% of the viewport width */
+  height: 100vh; /* 100% of the viewport height */
+  left: 0;
+  top: 0;
+  background-size: fit;
+  background-position: center;
+  z-index: -1; /* Send the background behind other elements */
+  
+
+
+}
+
 .bankoCard0 {
     display: grid;
-    grid-template-columns: auto auto auto auto auto auto auto auto auto;
+    grid-template-columns: 65px 65px 65px 65px 65px 65px 65px 65px 65px;
     grid-template-rows: auto auto auto;
-    gap: 10px;
-    padding: 10px;
+    gap: 1px;
+    padding: 0px;
     text-align: center;
-    border-style: solid;
+    justify-content: center;
+   
+    
    }
+
+
+
 
 
   .bankoCard0 input {
     background-color: white;
+    width: 65px;
+    height: 65px;
+    grid-auto-rows: 100px;
+    margin: 0;
+   
     
   }
   
   .bankoCard0 input.clicked {
-    background-color: green;
+    background-color: rgb(164, 250, 164);
   }
+
+  
 
 
 
 
   .bankoCard1 {
     display: grid;
-    grid-template-columns: auto auto auto auto auto auto auto auto auto;
+    grid-template-columns: 65px 65px 65px 65px 65px 65px 65px 65px 65px;
     grid-template-rows: auto auto auto;
-    gap: 10px;
-    padding: 10px;
+    gap: 1px;
+    padding: 0px;
     text-align: center;
-    border-style: solid;
+    justify-content: center;
+    
    }
 
 
   .bankoCard1 input {
     background-color: white;
+    width: 65px;
+    height: 65px;
+    grid-auto-rows: 100px;
+    margin: 0;
     
   }
   
   .bankoCard1 input.clicked {
-    background-color: green;
+    background-color: rgb(164, 250, 164);
   }
 
 
   .bankoCard2 {
     display: grid;
-    grid-template-columns: auto auto auto auto auto auto auto auto auto;
+    grid-template-columns: 65px 65px 65px 65px 65px 65px 65px 65px 65px;
     grid-template-rows: auto auto auto;
-    gap: 10px;
-    padding: 10px;
+    gap: 1px;
+    padding: 0px;
     text-align: center;
-    border-style: solid;
+    justify-content: center;
+   
    }
 
 
   .bankoCard2 input {
     background-color: white;
+    width: 65px;
+    height: 65px;
+    grid-auto-rows: 100px;
+    margin: 0;
     
   }
   
   .bankoCard2 input.clicked {
-    background-color: green;
+    background-color: rgb(164, 250, 164);
   }
 
 
@@ -75,3 +112,92 @@
     align-items: center;
 
   }
+
+
+  .reindeer{
+    position: absolute;
+width: 193px;
+height: 187px;
+left: 728px;
+top: 730px;
+
+  }
+
+
+  .round1{
+
+position: absolute;
+width: 190px;
+height: 101px;
+left: 200px;
+top: 88px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 700;
+font-size: 36px;
+line-height: 48px;
+
+color: #E4B780;
+
+  }
+
+  .round2{
+
+    position: absolute;
+    width: 190px;
+    height: 101px;
+    left: 200px;
+    top: 320px;
+    
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 48px;
+    
+    color: #E4B780;
+    
+      }
+
+      .round3{
+
+        position: absolute;
+        width: 190px;
+        height: 101px;
+        left: 200px;
+        top: 535px;
+        
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 36px;
+        line-height: 48px;
+        
+        color: #E4B780;
+        
+          }
+
+.generer{
+
+position: absolute;
+width: 176px;
+height: 29px;
+left: 770px;
+top: 722px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 700;
+font-size: 11px;
+line-height: 29px;
+
+
+color: #110E06;
+
+}
+
+
+
+
+
