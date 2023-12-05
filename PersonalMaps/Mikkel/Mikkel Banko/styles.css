@@ -1,13 +1,13 @@
 .backGround{
   
   position: absolute;
-  width: 100vw; /* 100% of the viewport width */
-  height: 100vh; /* 100% of the viewport height */
+  width: 100vw; 
+  height: 100vh; 
   left: 0;
   top: 0;
   background-size: fit;
   background-position: center;
-  z-index: -1; /* Send the background behind other elements */
+  z-index: -1; /
   
 
 
@@ -166,7 +166,7 @@ color: #E4B780;
         width: 190px;
         height: 101px;
         left: 200px;
-        top: 535px;
+        top: 540px;
         
         font-family: 'Inter';
         font-style: normal;
@@ -198,6 +198,17 @@ color: #110E06;
 }
 
 
+img {
+  cursor: pointer;
+  }
+
+  input {
+    cursor: pointer;
+  }
 
 
-
+  input[type="number"] {
+    font-size: 25px;
+    font-weight: bold;
+    text-align: center;
+}

@@ -1,4 +1,6 @@
-//counts empty fields in row function
+// CHECK EMPTYFIELDS IN ROW AND COLUMN
+
+//counts empty fields in one row function
 function countEmptyFields(row) {
     let emptyFieldCount = 0;
     let elementId;
@@ -11,9 +13,9 @@ function countEmptyFields(row) {
         if (fieldValue === "") { emptyFieldCount++;}
     }
     return emptyFieldCount; //funktion returnerer med værdi = antal tomme felter i row
-} 
+}
 
-//count empty fields in one column function (op ned)
+//count empty fields in one column function 
 function checkRuleColumn(col) {
     let emptyFieldCount = 0;
     let elementId;
@@ -29,7 +31,7 @@ function checkRuleColumn(col) {
     return emptyFieldCount; //funktion returnerer med værdien = antal tomme felter i column col
 }
 
-//count total empty columns function (venstre til højre)  
+//count total empty columns function 
 function checkEmptyColumn(){
     let columnError = 0;
     //column 0..8 gennemgås for tomme felter. Er der 3 tomme felter i en column tælles columnError op
@@ -38,8 +40,11 @@ function checkEmptyColumn(){
     } 
     return columnError; //funktion returnerer med værdien = antal tomme columns i container inputs
 }
+
+
+//SORT
     
-//one column sort function
+//one column sort function (sortererer en column i stigende orden uden at bytte om på placeringerne af tomme felter)
 function sortColumn(col){ 
 
     let arrayColumn = [];
