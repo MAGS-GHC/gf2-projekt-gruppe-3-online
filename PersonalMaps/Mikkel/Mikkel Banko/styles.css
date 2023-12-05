@@ -105,13 +105,7 @@
   }
 
 
-  
-  .button{
-    display: flex;
-    justify-content: center;
-    align-items: center;
 
-  }
 
 
   .reindeer{
@@ -212,3 +206,14 @@ img {
     font-weight: bold;
     text-align: center;
 }
+
+
+.naviBar{
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+
+}
+
