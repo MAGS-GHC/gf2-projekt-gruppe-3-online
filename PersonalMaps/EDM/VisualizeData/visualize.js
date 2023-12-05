@@ -23,7 +23,7 @@ function sortFunction(sortType) {
     switch (highLow) {
         case "lowToHigh":
             for (i=0;i<KPIparsed.length;i++) {
-                for (j=i; j<KPIparsed.length;j++) {
+                for (j=i; j<(KPIparsed.length-i);j++) {
                     if (KPIparsed[i][sortType] > KPIparsed[j][sortType]) {
                         let temp = KPIparsed[j];
                         KPIparsed[j] = KPIparsed[i];
@@ -34,7 +34,7 @@ function sortFunction(sortType) {
             break;
         case "highToLow":
             for (i=0;i<KPIparsed.length;i++) {
-                for (j=i; j<KPIparsed.length;j++) {
+                for (j=i; j<(KPIparsed.length-i);j++) {
                     if (KPIparsed[i][sortType] < KPIparsed[j][sortType]) {
                         let temp = KPIparsed[j];
                         KPIparsed[j] = KPIparsed[i];
@@ -117,7 +117,6 @@ function createKPITable() {
             currentCell.innerHTML = KPIparsed[i][j];
         }
     }
-
 }
 
 
