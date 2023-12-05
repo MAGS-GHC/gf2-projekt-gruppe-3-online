@@ -1,8 +1,8 @@
 A: THE RULES OF A BANKOCARD
 
 1. 3 rows 9 columns
-2. Column 1: (1..9) | Column 2: (10..19) | Column 3: (20..29) | Column 4: (30..39) | Column 5: (40..49) | Column 6: (50..59) | Column 7: (60..69) | Column 8: (70..79) | Column 9: (80..90)
-3. Column 9 goes to 90 
+2. Column 0: (1..9) | Column 1: (10..19) | Column 2: (20..29) | Column 3: (30..39) | Column 4: (40..49) | Column 5: (50..59) | Column 6: (60..69) | Column 7: (70..79) | Column 8: (80..90)
+3. Column 8 goes to 90
 4. Each row should contain 5 numbers and placed in column value-group (fx. 23 is placed in column 3 and 46 in column 5)
 5. There's 15 numbers in total on each bankocard
 6. Minimum 1 number in each column 
@@ -33,7 +33,7 @@ E: BANKO-ROW 0
 1. Make function bankorow0
 2. Create do-while loop that keeps looping the entire function until there's 5 numbers in row
 3.  Clear currenct bankocard r0c0..r0c8 container inputs with an empty string 
-4.  Define randomNumbersArray0 as an empty array
+4.  Declare randomNumbersArray0 as an empty array
 5.  Create for loop from 0 to 4
 6.      Do-while loop that keeps looping until we have 1 unique number from 1..90 compared to numbers in randomNumbersArray0
 7.      Push the unique numbers into randomNumbersArray0  

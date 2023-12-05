@@ -1,119 +1,107 @@
-// Counts Empty fields functions
+//counts empty fields in row function
 function countEmptyFields(row) {
-    emptyFieldCount = 0
+    let emptyFieldCount = 0;
+    let elementId;
+    let fieldValue;
 
-    for (let i = 0; i < 9; i++) {
-        elementId = bankocard + "r" + row + "c" + i;     // elementId er en pegepind til container input
+    for (let i = 0; i < 9; i++) { // i 0..8 (columns)
+        elementId = bankocard + "r" + row + "c" + i; //opsætter pegepind til container input
         fieldValue = document.getElementById(elementId).value; 
 
         if (fieldValue === "") { emptyFieldCount++;}
     }
-return emptyFieldCount;
+    return emptyFieldCount; //funktion returnerer med værdi = antal tomme felter i row
 } 
 
-
-//EMPTY COLUMN FUNCTION
-        
-function checkEmptyColumn(){
-    columnError = 0
-
-    for(let c = 0; c < 9; c++){
-        if(checkRuleColumn(c) > 2){columnError++;} 
-    } 
-
-return columnError;
-}
-    
-// LOOP IN ROW
+//count empty fields in one column function (op ned)
 function checkRuleColumn(col) {
-    emptyFieldCount = 0
-    for(let row = 0; row < 3; row++){
+    let emptyFieldCount = 0;
+    let elementId;
+    let fieldValue;
+    //antal tomme felter i column col optælles
+    for(let row = 0; row < 3; row++){ // row 0..2
 
-        elementId = bankocard + "r" + row + "c" + col;
+        elementId = bankocard + "r" + row + "c" + col; //opsætter pegepind til container input
         fieldValue = document.getElementById(elementId).value;
 
-        if (fieldValue === "") {emptyFieldCount++;}
-
+        if (fieldValue === "") {emptyFieldCount++;} //er felt tomt tælles emptyFieldCount op
     }
-return emptyFieldCount;
+    return emptyFieldCount; //funktion returnerer med værdien = antal tomme felter i column col
 }
 
-
-
-
-
-// SORT OF ALL COLUMN FUNCTION
-
-function sortAllColumns(){
-
-for(let i = 0; i < 9; i++){
-sortColumn(i);
+//count total empty columns function (venstre til højre)  
+function checkEmptyColumn(){
+    let columnError = 0;
+    //column 0..8 gennemgås for tomme felter. Er der 3 tomme felter i en column tælles columnError op
+    for(let c = 0; c < 9; c++){ // c 0..8 (columns)
+        if(checkRuleColumn(c) > 2){columnError++;} //er der 3 tomme felter i column c tælles columnsError op
+    } 
+    return columnError; //funktion returnerer med værdien = antal tomme columns i container inputs
 }
-
-}
-
-// SORT OF 1 COLUMN FUNCTION
-
+    
+//one column sort function
 function sortColumn(col){ 
 
-arrayColumn = []
+    let arrayColumn = [];
 
-elementId = bankocard + "r0c" + col;
-arrayColumn[0] = document.getElementById(elementId).value;
+    //hent værdier for column col fra container input til arrayColumn
+    elementId = bankocard + "r0c" + col; //opsæt pegepind til container input til row 0 og aktuelle column
+    arrayColumn[0] = document.getElementById(elementId).value; //indsæt container input i array(0)
+    elementId = bankocard + "r1c" + col; //opsæt pegepind til container input til row 1 og aktuelle column
+    arrayColumn[1] = document.getElementById(elementId).value; //indsæt container input i array(1)
+    elementId = bankocard + "r2c" + col; //opsæt pegepind til container input til row 2 og aktuelle column
+    arrayColumn[2] = document.getElementById(elementId).value; //indsæt container input i array(2)
 
-elementId = bankocard + "r1c" + col;
-arrayColumn[1] = document.getElementById(elementId).value;
-
-elementId = bankocard + "r2c" + col;
-arrayColumn[2] = document.getElementById(elementId).value;
-
-
-
-let emptyFieldCount = 0;
-for(let i = 0; i < 3; i++){
-    
-    if(arrayColumn[i] === ""){
-        emptyFieldCount++;
+    let emptyFieldCount = 0;
+    let x;
+    //optæl tomme felter i column
+    for(let i = 0; i < 3; i++){ //i 0..2 (row)   
+        if(arrayColumn[i] === ""){ emptyFieldCount++;} //er feltet tomt tælles emptyFiedCount op   
     }
-   
-}
 
-if(emptyFieldCount === 0){
+    //hvis der 0 tomme felter i column sortes column
+    if(emptyFieldCount === 0){ arrayColumn.sort();} //ingen tomme felter -> sorterer column (stigende)
 
 
-arrayColumn.sort(); // Hvis o tomme felter sorterer vi bare de 3 tal
-} 
+    //hvis der er 1 tomt felt i column sortes afhængig af placering af det tomme felt
+    if(emptyFieldCount === 1){
 
-//if emptyFieldCount === 2 do nothing
+        //hvis column 0 er tom -> sorter column idet sort ikke flytter det tomme felt ("" < "tal")
+        if(arrayColumn[0] === ""){arrayColumn.sort();}
 
-if(emptyFieldCount === 1){
-    if (arrayColumn[0] === ""){
-        arrayColumn.sort()
+        //hvis column 1 er tom -> hvis værdi i column 0 > column 2 -> ombyt værdi i column 0 og column 2
+        if(arrayColumn[1] === ""){
+            if(arrayColumn[0] > arrayColumn [2]){
+                x = arrayColumn[0];
+                arrayColumn[0] = arrayColumn[2];
+                arrayColumn[2] = x;
+            }
+        }
+        //hvis column 2 er tom -> hvis værdi i column 0 > column 1 -> ombyt værdi i column 0 og column 1
+        if(arrayColumn[2] === "") {
+            if(arrayColumn[0] > arrayColumn[1]) {
+                x = arrayColumn[0];
+                arrayColumn[0] = arrayColumn[1];
+                arrayColumn[1] = x;
+            }  
+        }    
     }
-    if(arrayColumn[1] === ""){
-        if(arrayColumn[0] > arrayColumn [2]){
-            let x = arrayColumn[0];
-            arrayColumn[0] = arrayColumn[2];
-            arrayColumn[2] = x 
-        }}
-   if (arrayColumn[2] === "") {
-       if (arrayColumn[0] > arrayColumn[1]) {
-        let x = arrayColumn[0];
-        arrayColumn[0] = arrayColumn[1];
-        arrayColumn[1] = x;
-        }  
-    }    
+
+    //hvis der er 2 tomme felter i column skal column ikke sorteres
+
+    //indsæt værdier for column col fra arrayColumn til container input
+    elementId = bankocard + "r0c" + col; //opsæt pegepind til container input til row 0 og aktuelle column
+    document.getElementById(elementId).value = arrayColumn[0]; //indsæt værdi i array(0) i container input
+    elementId = bankocard + "r1c" + col; //opsæt pegepind til container input til row 1 og aktuelle column
+    document.getElementById(elementId).value = arrayColumn[1]; //indsæt værdi i array(1) i container input
+    elementId = bankocard + "r2c" + col; //opsæt pegepind til container input til row 2 og aktuelle column
+    document.getElementById(elementId).value = arrayColumn[2]; //indsæt værdi i array(2) i container input
 }
 
+//all column sort function
+function sortAllColumns(){
 
-elementId = bankocard + "r0c" + col;
-document.getElementById(elementId).value = arrayColumn[0];
-
-elementId = bankocard + "r1c" + col;
-document.getElementById(elementId).value = arrayColumn[1];
-
-elementId = bankocard + "r2c" + col;
-document.getElementById(elementId).value = arrayColumn[2];
+    for(let c = 0; c < 9; c++){ //c 0..8 (column)
+        sortColumn(c); //sort column c
+    }
 }
-
-
