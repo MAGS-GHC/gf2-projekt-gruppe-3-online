@@ -1,6 +1,6 @@
 // CHECK EMPTYFIELDS IN ROW AND COLUMN
 
-//counts empty fields in one row function
+//counts empty fields in one ROW function
 function countEmptyFields(row) {
     let emptyFieldCount = 0;
     let elementId;

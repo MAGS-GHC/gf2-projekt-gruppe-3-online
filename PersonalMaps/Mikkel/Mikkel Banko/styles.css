@@ -7,7 +7,7 @@
   top: 0;
   background-size: fit;
   background-position: center;
-  z-index: -1; /
+  z-index: -1; 
   
 
 
@@ -109,11 +109,12 @@
 
 
   .reindeer{
-    position: absolute;
+    position: relative;
 width: 193px;
 height: 187px;
-left: 728px;
-top: 730px;
+left: 47.5%;
+margin-top: 25px;
+z-index: 1;
 
   }
 
@@ -174,11 +175,11 @@ color: #C0390A;
 
 .generer{
 
-position: absolute;
-width: 176px;
-height: 29px;
-left: 770px;
-top: 722px;
+  position: relative;
+width: 193px;
+height: 187px;
+left: 49.6%;
+margin-top: -190px;
 
 font-family: 'Inter';
 font-style: normal;
