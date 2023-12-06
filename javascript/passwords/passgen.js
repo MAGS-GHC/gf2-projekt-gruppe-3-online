@@ -11,8 +11,10 @@ function generatePassword() {
     for (i=0;i<passLength;i++) {
         password += charsAllowed[Math.floor(Math.random() * charsAllowed.length)]
     }
-    document.getElementById("passwordOutput").innerText = "Generated password: " + password
-}
+    this[ourVal]["password"] = password;
+    delete this[ourVal]["passReset"]
+    alert("Your new password is " + password);
+    resetVars();}
 
 function updateVals() {
     document.getElementById("sliderOutput").innerText = document.getElementById("pswLength").value;
