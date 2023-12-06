@@ -1,6 +1,7 @@
 const charsBase = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
-document.getElementById("sliderOutput").innerText = document.getElementById("pswLength").value;
-
+const charsOptional = "æøåÆØÅ!@#$%+-/*"
+updateVals();
+createCheckbox(charsOptional);
 
 
 function generatePassword() {
@@ -10,7 +11,7 @@ function generatePassword() {
     for (i=0;i<passLength;i++) {
         password += charsAllowed[Math.floor(Math.random() * charsAllowed.length)]
     }
-    document.getElementById("passwordOutput").innerText = "Your new password is: " + password
+    document.getElementById("passwordOutput").innerText = "Generated password: " + password
 }
 
 function updateVals() {
@@ -18,12 +19,29 @@ function updateVals() {
 
 }
 
-function generateCharsAllowed(charset) {
-    if (document.getElementById("danLetters").checked) {
-        charset += document.getElementById("danLetters").value
+function createCheckbox(charOpt) {
+    let checkboxDiv = document.getElementById("checkboxDiv");
+    for (i=0;i<charOpt.length;i++) {
+        //create checkbox for each charOpt
+        let checkbox = document.createElement("input");
+        let label = document.createElement("label");
+        checkbox.type = "checkbox";
+        checkbox.id = "checkbox" + i;
+        label.htmlFor = "checkbox" + i;
+        label.innerText = charOpt[i]
+        checkbox.value = charOpt[i]
+        checkboxDiv.appendChild(checkbox);
+        checkboxDiv.appendChild(label);
     }
-    if (document.getElementById("mathSigns").checked) {
-        charset += document.getElementById("mathSigns").value
+}
+
+function generateCharsAllowed(charset) {
+    let checkboxes = document.querySelectorAll('input[type="checkbox"]')
+    checkboxes.forEach(checkStatus)
+    function checkStatus(checkbox) {
+        if (checkbox.checked) {
+            charset += checkbox.value
+        }
     }
     return charset;
 }

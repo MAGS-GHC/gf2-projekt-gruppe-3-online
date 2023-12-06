@@ -11,3 +11,6 @@ B1: Optionals
     1: Re-do sort to not use built-in .sort method
         a: research efficiency
     2: Graphs built from data set, different for each column
+
+     
+    quirks: currentCell lived globally because it wasn't declared inside loops
