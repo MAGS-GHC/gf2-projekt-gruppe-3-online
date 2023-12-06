@@ -3,8 +3,7 @@
       color: white;
       padding: 10px;
       text-align: center;
-      margin-top: 0px;
-     
+      margin-top: 25px;
     }
 
     nav a {
@@ -15,7 +14,8 @@
       font-size: 36px;
       font-family: 'Inter';
       font-style: normal;
-      color:#C0390A;
+      color:#F7C88A;
+      
     }
 
     nav a:hover {
@@ -35,11 +35,20 @@
         z-index: -1; 
     }
 
-    .rein  {
-        position: absolute;
-    width: 393px;
-    height: 387px;
-    left: 470px;
-    top: 250px;
-    
+      .pics{
+        display: grid;
+        grid-gap: 130px;
+        justify-content: space-around;
+        text-align: center;
+        grid-template-columns: auto auto auto;
+        margin-left: 70px;
+     
+       }
+       .container {
+        display: flex;
+        justify-content: center;
+        margin-top: 400px;
     }
+
+
+  

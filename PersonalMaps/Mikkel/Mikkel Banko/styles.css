@@ -7,7 +7,7 @@
   top: 0;
   background-size: fit;
   background-position: center;
-  z-index: -1; /
+  z-index: -1; 
   
 
 
@@ -21,32 +21,19 @@
     padding: 0px;
     text-align: center;
     justify-content: center;
-   
+  }
     
-   }
-
-
-
-
-
-  .bankoCard0 input {
+    .bankoCard0 input {
     background-color: white;
     width: 65px;
     height: 65px;
     grid-auto-rows: 100px;
     margin: 0;
-   
-    
   }
   
   .bankoCard0 input.clicked {
     background-color: rgb(164, 250, 164);
   }
-
-  
-
-
-
 
   .bankoCard1 {
     display: grid;
@@ -56,8 +43,7 @@
     padding: 0px;
     text-align: center;
     justify-content: center;
-    
-   }
+  }
 
 
   .bankoCard1 input {
@@ -83,7 +69,7 @@
     text-align: center;
     justify-content: center;
    
-   }
+  }
 
 
   .bankoCard2 input {
@@ -108,17 +94,17 @@
 
 
 
-  .reindeer{
-    position: absolute;
-width: 193px;
-height: 187px;
-left: 728px;
-top: 730px;
+  .reindeer {
+  position: relative;
+  width: 193px;
+  height: 187px;
+  left: 47.5%;
+  margin-top: 25px;
+  z-index: 1;
+}
 
-  }
 
-
-  .round1{
+.round1{
 
 position: absolute;
 width: 190px;
@@ -131,10 +117,9 @@ font-style: normal;
 font-weight: 700;
 font-size: 36px;
 line-height: 48px;
+color: #F7C88A;
 
-color: #C0390A;
-
-  }
+}
 
   .round2{
 
@@ -150,7 +135,7 @@ color: #C0390A;
     font-size: 36px;
     line-height: 48px;
     
-    color: #C0390A;
+    color: #F7C88A;
     
       }
 
@@ -168,17 +153,17 @@ color: #C0390A;
         font-size: 36px;
         line-height: 48px;
         
-        color:#C0390A;
+        color:#F7C88A;
         
           }
 
 .generer{
 
-position: absolute;
-width: 176px;
-height: 29px;
-left: 770px;
-top: 722px;
+position: relative;
+width: 193px;
+height: 187px;
+left: 49.6%;
+margin-top: -190px;
 
 font-family: 'Inter';
 font-style: normal;
@@ -187,7 +172,7 @@ font-size: 11px;
 line-height: 29px;
 
 
-color: #C0390A;
+color: #F7C88A;
 
 }
 
@@ -214,7 +199,9 @@ img {
   justify-content: center;
   align-items: center;
   gap: 10px;
-  
 
 }
+
+
+
 

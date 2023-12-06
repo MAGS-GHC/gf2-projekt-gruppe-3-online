@@ -59,7 +59,7 @@ F: BANKO-ROW 1
 11.     Make if statement to ensure that 90 is included in last column
 12!     Make if statement that places the number in container inputs current bankocard r1c0..r1c8 in the correct column based on its value
 
-G: Bank-Row 3
+G: BANKO-ROW 3
 
 1! Make function bankorow1
 2! Create do-while loop keeps looping until no column is empty
@@ -75,4 +75,16 @@ G: Bank-Row 3
 12.         Make if statement to ensure that 90 is included in last column
 13!         Make if statement that places the number in container inputs current bankocard r2c0..r2c8 in the correct column based on its value
 
+H: CHECK EMPTY COLUMN
 
+1. Create Functions Empty Fields with parameter row
+2. Create variable emptyfilecount and set to 0 to clear function
+3. define let elementId
+4. define let fieldValue
+5. create loop from 0..8
+6. Set elementId to the bankocard + row and column we are looking at
+7. filedValue is set to document.getElementById(elementId).value; to read the information in bankocard, column and row
+8. If fieldValue is an empty string emptyFieldCount is counting one up
+9. Return the emptyFieldCount to make function be the value of empty fields.
+
+I: 
