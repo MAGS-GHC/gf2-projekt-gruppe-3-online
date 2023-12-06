@@ -105,15 +105,15 @@ function createKPITable() {
     let headRow = colHead.insertRow(0);
     let meanModeRow = colHead.insertRow(1);
     for (i=0;i<keysArray.length;i++) {
-        currentCell = headRow.insertCell(i)
+        let currentCell = headRow.insertCell(i)
         currentCell.innerHTML = keysArray[i]
         currentCell = meanModeRow.insertCell(i)
         currentCell.innerHTML = calcMeanMedian(i);
     }
     for (i=0;i<KPIparsed.length;i++) {
-        currentRow = table.insertRow(i+2)
+        let currentRow = table.insertRow(i+2)
         for (j=0;j<keysArray.length;j++) {
-            currentCell = currentRow.insertCell(j);
+            let currentCell = currentRow.insertCell(j);
             currentCell.innerHTML = KPIparsed[i][j];
         }
     }
