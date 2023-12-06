@@ -1,0 +1,32 @@
+.sortOptions {
+    display: grid;
+    grid-template-columns: 65px 130px 130px 130px 130px;
+    text-align: center;
+}
+
+select {
+    text-align: center;
+}
+
+body {
+    background-image: url("/assets/bunMetric.jpeg");
+    background-repeat: no-repeat;
+}
+
+.KPITable {
+    display: grid;
+    height: 500px;
+    overflow: auto;
+    background-color: white;
+    opacity: 0.5;
+}
+
+th,td {
+    border: solid 1px;
+    text-align: center;
+}
+
+.canvas {
+    width: 100%;
+    max-width: 700px;
+}

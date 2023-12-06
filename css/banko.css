@@ -1,0 +1,207 @@
+.backGround{
+  
+  position: absolute;
+  width: 100vw; 
+  height: 100vh; 
+  left: 0;
+  top: 0;
+  background-size: fit;
+  background-position: center;
+  z-index: -1; 
+  
+
+
+}
+
+.bankoCard0 {
+    display: grid;
+    grid-template-columns: 65px 65px 65px 65px 65px 65px 65px 65px 65px;
+    grid-template-rows: auto auto auto;
+    gap: 1px;
+    padding: 0px;
+    text-align: center;
+    justify-content: center;
+  }
+    
+    .bankoCard0 input {
+    background-color: white;
+    width: 65px;
+    height: 65px;
+    grid-auto-rows: 100px;
+    margin: 0;
+  }
+  
+  .bankoCard0 input.clicked {
+    background-color: rgb(164, 250, 164);
+  }
+
+  .bankoCard1 {
+    display: grid;
+    grid-template-columns: 65px 65px 65px 65px 65px 65px 65px 65px 65px;
+    grid-template-rows: auto auto auto;
+    gap: 1px;
+    padding: 0px;
+    text-align: center;
+    justify-content: center;
+  }
+
+
+  .bankoCard1 input {
+    background-color: white;
+    width: 65px;
+    height: 65px;
+    grid-auto-rows: 100px;
+    margin: 0;
+    
+  }
+  
+  .bankoCard1 input.clicked {
+    background-color: rgb(164, 250, 164);
+  }
+
+
+  .bankoCard2 {
+    display: grid;
+    grid-template-columns: 65px 65px 65px 65px 65px 65px 65px 65px 65px;
+    grid-template-rows: auto auto auto;
+    gap: 1px;
+    padding: 0px;
+    text-align: center;
+    justify-content: center;
+   
+  }
+
+
+  .bankoCard2 input {
+    background-color: white;
+    width: 65px;
+    height: 65px;
+    grid-auto-rows: 100px;
+    margin: 0;
+    
+  }
+  
+  .bankoCard2 input.clicked {
+    background-color: rgb(164, 250, 164);
+  }
+
+
+  .blank-line{
+    margin: 0;
+  }
+
+
+
+
+
+  .reindeer {
+  position: relative;
+  width: 193px;
+  height: 187px;
+  left: 47.5%;
+  margin-top: 25px;
+  z-index: 1;
+}
+
+
+.round1{
+
+position: absolute;
+width: 190px;
+height: 101px;
+left: 200px;
+top: 88px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 700;
+font-size: 36px;
+line-height: 48px;
+color: #F7C88A;
+
+}
+
+  .round2{
+
+    position: absolute;
+    width: 190px;
+    height: 101px;
+    left: 200px;
+    top: 320px;
+    
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 48px;
+    
+    color: #F7C88A;
+    
+      }
+
+      .round3{
+
+        position: absolute;
+        width: 190px;
+        height: 101px;
+        left: 200px;
+        top: 540px;
+        
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 36px;
+        line-height: 48px;
+        
+        color:#F7C88A;
+        
+          }
+
+.generer{
+
+position: relative;
+width: 193px;
+height: 187px;
+left: 49.6%;
+margin-top: -190px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 700;
+font-size: 11px;
+line-height: 29px;
+
+
+color: #F7C88A;
+
+}
+
+
+img {
+  cursor: pointer;
+  }
+
+  input {
+    cursor: pointer;
+  }
+
+
+  input[type="number"] {
+    font-size: 25px;
+    font-weight: bold;
+    text-align: center;
+}
+
+
+.naviBar{
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+
+}
+
+
+
+

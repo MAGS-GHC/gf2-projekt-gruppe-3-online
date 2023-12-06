@@ -1,5 +1,0 @@
-LandingPage:
-Navigation
-Password Generator
-Forgotten Password
-Bankospil
