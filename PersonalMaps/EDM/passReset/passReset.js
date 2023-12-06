@@ -20,20 +20,44 @@ function populateEmployees() {
 
 
 let ourVal;
-function doStuff() {
+function doStuff() { 
     document.getElementById("testOutput").innerText = "";
     ourVal = document.getElementById("userID").value;
     if (typeof this[ourVal] != "object") {
         document.getElementById("testOutput").innerText = "Ugyldigt brugerID";
         return;
     }
-    /*if (typeof this[ourVal][passReset] != "object") {
+    if (typeof this[ourVal]["passReset"] === "number") {
         passResetInit();
-    }*/
-    document.getElementById("testOutput").innerText = "Placeholder for mail sendt/id-kode token";
+        return;
+    }
     confirm("Når du trykker confirm, vil en mail blive sendt til " + this[ourVal].email + ", med instrukser, til at nulstille din adgangskode. Fortsat god dag, " + this[ourVal].firstName + "!")
+    mailPlaceholder();
+    passResetInit();
+}
+
+function doStuff2() {
+    if (document.getElementById("resetVerify").value == this[ourVal]["passReset"]) {
+        this[ourVal]["password"] = prompt("Enter your new password")
+        delete this[ourVal]["passReset"];
+    }
+    else {
+        delete this[ourVal]["passReset"];
+        alert("Ikke korrekt. Start forfra.")
+    
+    }
+    document.getElementById("resetVerify").style.visibility = "hidden"
+    document.getElementById("knap2").style.visibility = "hidden"
+}
+
+function mailPlaceholder() {
+    //this[ourVal].email
+    this[ourVal]["passReset"] = (Math.floor(Math.random()*100000) + 100000)
 }
 
 function passResetInit() {
-
+    document.getElementById("testOutput").innerText = "Indtast koden fra din email for at fortsætte";
+    document.getElementById("resetVerify").style.visibility = ""
+    document.getElementById("knap2").style.visibility = ""
 }
+
