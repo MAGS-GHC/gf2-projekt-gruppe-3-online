@@ -59,9 +59,10 @@ function bankoRow0() {
     
             randomNumbersArray0.push(randomNumber);//push the unique numbers into randomNumbersArray0
         }
+
         let low;
         let high;
-        //sorter de 5 tilfældige tal i 8 column og indsæt tal i rækkens container input
+       
         for (let t = 0; t < 5; t++) { //t (tal) 0..4
             for (let i = 0; i < 9; i++) { //i (column) 0..8
                 low = i * 10; //column min værdi
