@@ -42,23 +42,19 @@ function bankoRow0() {
     do {
 
         let elementId;
-        //clear currenct bankocard r0c0..r0c8 container inputs with an empty string
+        //Clear Inputs
         for (let i = 0; i < 9; i++) {
             elementId = bankocard + "r0c" + i; //opsætter pegepind til container input felt
             document.getElementById(elementId).value = "";
         }
 
-        randomNumbersArray0 = []; //Declare randomNumbersArray0 as an empty array
+        randomNumbersArray0 = [];
         let randomNumber;
         //udtag 5 tilfældige tal
         for (let i = 0; i < 5; i++) { //i 0..4
             //do-while loop keeps looping until we have 1 unique number from 1..90 compared to numbers in randomNumbersArray0
             do {
                 randomNumber = Math.floor(Math.random() * 90) + 1; 
-                //"random" udtager et tilfældigt tal i intervallet 0 <= tal < 1
-                //tal * 90 -> 0 <= tal < 90. 
-                //"floor" nedrunder tal til nærmeste heltal -> 0 <= tal <= 89
-                //+1 -> 1 <= tal <= 90
             } while (randomNumbersArray0.includes(randomNumber)); //"includes" er sand hvis tal findes i array
     
             randomNumbersArray0.push(randomNumber);//push the unique numbers into randomNumbersArray0

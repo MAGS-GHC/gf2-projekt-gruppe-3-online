@@ -104,6 +104,8 @@ function sortOneColumn(col){
 
     //hvis der er 1 tomt felt i column sortes afhængig af placering af det tomme felt
 
+    // SORTERING
+
     if(emptyFieldCount === 1){
 
         
@@ -142,7 +144,7 @@ function sortOneColumn(col){
 
         }
 
-        //hvis nedeste fejl i column er tom (column 2) -> hvis værdi i column 0 > column 1 -> ombyt værdi i column 0 og column 1
+        //hvis nederste felt i column er tom (column 2) -> hvis værdi i column 0 > column 1 -> ombyt værdi i column 0 og column 1
 
         if(arrayColumn[2] === "") {
 
@@ -191,4 +193,41 @@ function sortAllColumns(){
 
     }
 
+}
+
+
+//HOHO SOUND
+
+function hohoSound() {
+  let sound = document.getElementById("hoho");
+  sound.play();
+}
+
+// PULL NUMBER
+
+function pullNumber(){
+
+    number = Math.floor(Math.random() * 90) + 1;
+    document.getElementById("bankoNumber").innerHTML = "Nummer: " + number;
+}
+
+//TOGGLE BETWEEN WHITE AND GREEN INPUT FIELD COLOR
+
+let inputs = document.querySelectorAll('.input1, .input2, .input3, .input4, .input5, .input6, .input7, .input8, .input9, .input10, .input11, .input12, .input13, .input14, .input15, .input16, .input17, .input18, .input19, .input20, .input21, .input22, .input23, .input24, .input25, .input26, .input27');
+
+inputs.forEach(function(input) {
+input.addEventListener('click', function() {
+    this.classList.toggle('clicked');
+  });
+}); 
+
+
+// CLEAR GREEN WHEN CREATING NEW CARDS
+
+function clearGreen() {
+  let clickedElements = document.querySelectorAll('.clicked');
+
+  clickedElements.forEach(function(element) {
+      element.classList.remove('clicked');
+  });
 }

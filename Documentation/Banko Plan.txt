@@ -108,11 +108,29 @@ J: COUNT TOTAL EMPTY COLUMNS
 5. The Function returns with the value of columnError 
 
 
-K: SORT ONE COLUMN FUNCTION
+K: SORT ONE COLUMN
 
 1. Create function sortColumn with parameter col
 2. define arrayColumn as an empty array
 3. Point elementId to the bankocard, r0c + col
-4. Insert container input in arrayColumn[0]
+4. Insert container input r0c + col in arrayColumn[0]
 5. repeat for r1c + col and insert in arrayColumn[1]
 6. repeat for r2c + col and insert in arrayColumn[2]
+7. Define emptyFieldCount to 0
+8  Loop from 0..2
+9. If arrayColumn on [i] place is an empty string count emptyFieldCount up by one
+
+
+L: IF THERE'S NO EMPTY PLACES IN COLUMN
+1. Sort numbers
+
+
+M: HOW TO SORT IF THERE'S 1 EMPT FIELD
+
+1. If column 0 (first place) is empty and column 1 (Mid) is bigger than column 2 (last place) change column 1 and 2 around
+2. If column 1 (mid) is empty and column 0 (first place) is bigger than column 2(last place) change column 0 and 2 around
+3. If Column 2 (Last place) is empty and column 0 (first place) is bigger than Column 1(Mid) Change column 0 and 1 around 
+
+N:
+
+1. 

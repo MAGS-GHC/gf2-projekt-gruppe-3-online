@@ -14,14 +14,13 @@ function populateEmployees() {
     KaBi0001 = new Employee("Karsten","Birch","0001","KaBi0001fakemail@madeup.org","password1")
     MiSo0001 = new Employee("Michael","Solm","0001","MiSo0001fakemail@madeup.org","password3")
     BiBi0001 = new Employee("Bitte","Biwald","0001","BiBi0001fakemail@madeup.org","password2")
-    
 }
 
 let ourVal;
 function checkValidID() { 
     document.getElementById("textMessage").innerText = "";
     ourVal = document.getElementById("userID").value;
-    if (typeof this[ourVal] != "object") {
+    if (typeof this[ourVal] != "object") { 
         document.getElementById("textMessage").innerText = "Ugyldigt brugerID";
         return;
     }
@@ -68,5 +67,4 @@ function resetVars() {
     document.getElementById("userID").disabled = false;
     document.getElementById("userIDbutton").disabled = false;
     document.getElementById("textMessage").innerText = "Indtast brugerID for at nulstille din adgangskode"
-
 }
