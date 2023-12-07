@@ -1,21 +1,12 @@
-let KPIparsed; //contains parsed KPI, array (length) of array (categories)
-let keysArray; //contains category names, cut from KPIparsed
-let rangeOf = []; //contains range of category values, max to min, for graph
+let KPIparsed; 
+let keysArray; 
 
 function sortBy() {
     let test = document.getElementById("sortByOptions").value;
-    //let sortType = keysArray.indexOf(test);
-    /*if (highLow === "highToLow") {
-        KPIparsed.sort(function(a, b) {return b[sortType]-a[sortType]})
-    }
-    else if (highLow === "lowToHigh") {
-        KPIparsed.sort(function(a, b) {return a[sortType]-b[sortType]})
-    }*/
     sortFunction(keysArray.indexOf(test));
     console.table(KPIparsed);
     repopulateTable();
     simplePlotDisplay()
-    //function(a, b), reverse with function(b, a)?
 }
 
 function sortFunction(sortType) {
