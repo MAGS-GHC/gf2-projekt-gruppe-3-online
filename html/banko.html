@@ -12,10 +12,14 @@
 </head>
 <body>
 
-   
- 
-    <div><img src="/assets/bg.png" alt="" class="backGround"></div>
+    <div class="pullNumber">
+       <button class="styleButton" onclick=" pullNumber()">Træk Nummer</button>
+       <p id="bankoNumber">Nummer:</p>
+    </div>
     
+    <div><img src="/assets/bg3.avif" alt="" class="backGround"></div>
+        <audio id="hoho" src="/assets/hoho.wav"></audio>
+        
     <div class="naviBar">
 
         
@@ -23,17 +27,15 @@
     <a href="/html/passwords.html">Passwords</a>
     <a href="/html/visualizeData.html">VisualizeData</a>
 
-    </div>
+</div>
 
 <br>
 
-    <p class="round1">Plade 1.</p>
-    <p class="round2">Plade 2.</p>
-    <p class="round3">Plade 3.</p>
+   
 
     <div class="bankoCard0">
 
-        <input type="number" name="" id="bc0r0c0" class="input1" readonly>
+        <input type="number" name="" id="bc0r0c0" class="input1"readonly>
         <input type="number" name="" id="bc0r0c1" class="input2"readonly>
         <input type="number" name="" id="bc0r0c2" class="input3"readonly>
         <input type="number" name="" id="bc0r0c3" class="input4"readonly>
@@ -73,7 +75,7 @@
 
     <div class="bankoCard1">
 
-        <input type="number" name="" id="bc1r0c0" class="input1" readonly>
+        <input type="number" name="" id="bc1r0c0" class="input1"readonly>
         <input type="number" name="" id="bc1r0c1" class="input2"readonly>
         <input type="number" name="" id="bc1r0c2" class="input3"readonly>
         <input type="number" name="" id="bc1r0c3" class="input4"readonly>
@@ -151,8 +153,8 @@
   
 
   
-<div onclick= "banko(); clearGreen();"><img src="/assets/icons/mage-from-rawpixel-id-12103394-png.png" alt="" width="193" height="187" class="reindeer"></div>
-<p class="generer">Generer plader</p>
+<div onclick= "banko(); clearGreen(); hohoSound();"><img src="/assets/generer.png" alt="" width="193" height="187" class="reindeer"></div>
+
    
 
     

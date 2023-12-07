@@ -18,3 +18,15 @@ function clearGreen() {
       element.classList.remove('clicked');
   });
 }
+
+function hohoSound() {
+  let sound = document.getElementById("hoho");
+  sound.play();
+}
+
+function pullNumber(){
+  
+number = Math.floor(Math.random() * 90) + 1;
+document.getElementById("bankoNumber").innerHTML = "Nummer: " + number;
+
+}

@@ -15,7 +15,7 @@
 
 .bankoCard0 {
     display: grid;
-    grid-template-columns: 65px 65px 65px 65px 65px 65px 65px 65px 65px;
+    grid-template-columns: 60px 60px 60px 60px 60px 60px 60px 60px 60px;
     grid-template-rows: auto auto auto;
     gap: 1px;
     padding: 0px;
@@ -37,7 +37,7 @@
 
   .bankoCard1 {
     display: grid;
-    grid-template-columns: 65px 65px 65px 65px 65px 65px 65px 65px 65px;
+    grid-template-columns: 60px 60px 60px 60px 60px 60px 60px 60px 60px;
     grid-template-rows: auto auto auto;
     gap: 1px;
     padding: 0px;
@@ -62,7 +62,7 @@
 
   .bankoCard2 {
     display: grid;
-    grid-template-columns: 65px 65px 65px 65px 65px 65px 65px 65px 65px;
+    grid-template-columns: 60px 60px 60px 60px 60px 60px 60px 60px 60px;
     grid-template-rows: auto auto auto;
     gap: 1px;
     padding: 0px;
@@ -90,92 +90,14 @@
     margin: 0;
   }
 
-
-
-
-
   .reindeer {
   position: relative;
   width: 193px;
   height: 187px;
   left: 47.5%;
-  margin-top: 25px;
+  margin-top: -20px;
   z-index: 1;
 }
-
-
-.round1{
-
-position: absolute;
-width: 190px;
-height: 101px;
-left: 200px;
-top: 88px;
-
-font-family: 'Inter';
-font-style: normal;
-font-weight: 700;
-font-size: 36px;
-line-height: 48px;
-color: #F7C88A;
-
-}
-
-  .round2{
-
-    position: absolute;
-    width: 190px;
-    height: 101px;
-    left: 200px;
-    top: 320px;
-    
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 36px;
-    line-height: 48px;
-    
-    color: #F7C88A;
-    
-      }
-
-      .round3{
-
-        position: absolute;
-        width: 190px;
-        height: 101px;
-        left: 200px;
-        top: 540px;
-        
-        font-family: 'Inter';
-        font-style: normal;
-        font-weight: 700;
-        font-size: 36px;
-        line-height: 48px;
-        
-        color:#F7C88A;
-        
-          }
-
-.generer{
-
-position: relative;
-width: 193px;
-height: 187px;
-left: 49.6%;
-margin-top: -190px;
-
-font-family: 'Inter';
-font-style: normal;
-font-weight: 700;
-font-size: 11px;
-line-height: 29px;
-
-
-color: #F7C88A;
-
-}
-
 
 img {
   cursor: pointer;
@@ -183,6 +105,11 @@ img {
 
   input {
     cursor: pointer;
+  }
+
+  button {
+    cursor: pointer;
+
   }
 
 
@@ -202,6 +129,26 @@ img {
 
 }
 
+.pullNumber{
+  position: absolute;
+width: 190px;
+height: 101px;
+left: 100px;
+top: 350px;
+font-size: 25px;
+font-weight: bold;
+text-align: center;
+
+}
+.styleButton {
+  background-color: #F7C88A;
+  width: 150px;
+  height: 50px;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 20px;
+}
 
 
 

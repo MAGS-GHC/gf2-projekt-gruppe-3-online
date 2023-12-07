@@ -23,7 +23,7 @@ C: CREATE GLOBAL VARIABLES
 
 D: BANKO FUNCTION
 
-1. Define bankocard with id with bankcard id
+1. Define bankocard with id
 2. Run functions bankoRow0, bankoRow1, bankoRow2 and sortAllColumns
 3. When all function has been run in bc0, set bankocard id to bankRow1 = "bc1"
 4. When all functions has been run in bc1, set id of bankocard to bankoRow2 = "bc2" and run all function
@@ -75,16 +75,44 @@ G: BANKO-ROW 3
 12.         Make if statement to ensure that 90 is included in last column
 13!         Make if statement that places the number in container inputs current bankocard r2c0..r2c8 in the correct column based on its value
 
-H: CHECK EMPTY COLUMN
+H: COUNT EMPTY FIELDS IN ROW
 
-1. Create Functions Empty Fields with parameter row
+1. Create Functions CountEmptyFields with parameter row
 2. Create variable emptyfilecount and set to 0 to clear function
-3. define let elementId
-4. define let fieldValue
-5. create loop from 0..8
-6. Set elementId to the bankocard + row and column we are looking at
-7. filedValue is set to document.getElementById(elementId).value; to read the information in bankocard, column and row
-8. If fieldValue is an empty string emptyFieldCount is counting one up
-9. Return the emptyFieldCount to make function be the value of empty fields.
+3. Define elementId
+4. Define fieldValue
+5. Create loop from 0..8
+6. Set elementId to current bankocard and row and column we are checking
+7. FieldValue is set to the value in container input
+8. If fieldValue is an empty string emptyFieldCount count one up
+9. Return the emptyFieldCount function to be the value of empty fields.
 
-I: 
+
+I: COUNT EMPTY FIELDS IN ONE COLUMN
+
+1. Create function CountEmptyFieldsOneColumn with parameter col
+2. Create variable EmptyFieldCount and define to 0
+3. Define elementId and fieldValue
+4. Make loop from 0..2
+5. Set elementId to current bankocard and row and column
+6. Set fieldValue to the value of the specific field 
+7. If the fieldvalue is an empty string count emptyFieldCount one up
+8. The function returns with the value of emptyFieldCount
+
+J: COUNT TOTAL EMPTY COLUMNS
+
+1. Create function CheckEmptyColumns
+2. Define columnError to 0
+3. Create loop from 0..8
+4. Make if statement that counts up columnErrors by one each time there's more than 2 empty fields in a column
+5. The Function returns with the value of columnError 
+
+
+K: SORT ONE COLUMN FUNCTION
+
+1. Create function sortColumn with parameter col
+2. define arrayColumn as an empty array
+3. Point elementId to the bankocard, r0c + col
+4. Insert container input in arrayColumn[0]
+5. repeat for r1c + col and insert in arrayColumn[1]
+6. repeat for r2c + col and insert in arrayColumn[2]
