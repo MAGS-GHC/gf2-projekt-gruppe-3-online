@@ -12,27 +12,22 @@ async function KPIExcelParse() {
     createKPITable();
 }
 
-function createSortOptions() { //improve, reduce repetition
+function createSortOptions() {
     let optionList = document.getElementById("sortByOptions");
-    optionList.innerHTML = "";
-    for (i=0;i<keysArray.length;i++) {
-        let newOption = keysArray[i];
-        let temp = document.createElement("option");
-        temp.textContent = newOption;
-        temp.value = newOption;
-        temp.id = "x: " + keysArray[i]
-        optionList.appendChild(temp)
-    }
-    
+    sortAppends("x: ")
     optionList = document.getElementById("yAxis");
-    optionList.innerHTML = "";
-    for (i=0;i<keysArray.length;i++) {
-        let newOption = keysArray[i];
-        let temp = document.createElement("option");
-        temp.textContent = newOption;
-        temp.value = newOption;
-        temp.id = "y: " + keysArray[i]
-        optionList.appendChild(temp)
+    sortAppends("y: ")
+
+    function sortAppends(idName) {
+        optionList.innerHTML = "";
+        for (i=0;i<keysArray.length;i++) {
+            let newOption = keysArray[i];
+            let temp = document.createElement("option");
+            temp.textContent = newOption;
+            temp.value = newOption;
+            temp.id = idName + keysArray[i]
+            optionList.appendChild(temp)
+        }
     }
 }
 
@@ -42,11 +37,11 @@ function createKPITable() {
     let colHead = table.createTHead();
     let headRow = colHead.insertRow(0);
     let meanModeRow = colHead.insertRow(1);
-    for (i=0;i<keysArray.length;i++) {
-        let currentCell = headRow.insertCell(i)
-        currentCell.innerHTML = keysArray[i]
-        currentCell = meanModeRow.insertCell(i)
-        currentCell.innerHTML = calcMeanMedian(i);
+    for (header=0;header<keysArray.length;header++) {
+        let currentCell = headRow.insertCell(header)
+        currentCell.innerHTML = keysArray[header]
+        currentCell = meanModeRow.insertCell(header)
+        currentCell.innerHTML = calcMeanMedian(header);
     }
     for (i=0;i<KPIparsed.length;i++) {
         let currentRow = table.insertRow(i+2)
@@ -56,61 +51,6 @@ function createKPITable() {
         }
     }
 }
-
-function sortBy() {
-    let selectedOption = document.getElementById("sortByOptions").value;
-    sortFunction(keysArray.indexOf(selectedOption));
-    console.table(KPIparsed);
-    repopulateTable();
-    simplePlotDisplay()
-}
-
-function sortFunction(sortType) {
-    let highLow = document.getElementById("lowHighSelect").value;
-    switch (highLow) {
-        case "lowToHigh":
-            for (i=0;i<KPIparsed.length;i++) {
-                for (j=0; j<KPIparsed.length;j++) {
-                    if (KPIparsed[j][sortType] > KPIparsed[(i)][sortType]) {
-                        let temp = KPIparsed[i];
-                        KPIparsed[i] = KPIparsed[j];
-                        KPIparsed[j] = temp;
-                    }
-                }
-            }
-            break;
-        case "highToLow":
-            for (i=0;i<KPIparsed.length;i++) {
-                for (j=0; j<KPIparsed.length;j++) {
-                    if (KPIparsed[j][sortType] < KPIparsed[(i)][sortType]) {
-                        let temp = KPIparsed[i];
-                        KPIparsed[i] = KPIparsed[j];
-                        KPIparsed[j] = temp;
-                    }
-                }
-            }
-            break;
-    }
-    
-}
-
-function repopulateTable() {
-    let table = document.getElementById("KPITable");
-    console.log(table.rows.length)
-    for (row=0;row<(KPIparsed.length);row++) { 
-        for (cell=0;cell<keysArray.length;cell++) {
-            table.rows[row+2].cells[cell].innerHTML = KPIparsed[row][cell];
-            //+2row to not overwrite headers
-        }
-    }
-    console.log(table.rows.length)
-}
-
-
-
-
-
-
 
 function calcMeanMedian(index) {
     let tempSum = 0;
@@ -123,8 +63,15 @@ function calcMeanMedian(index) {
     KPIparsed.forEach(element => {
         tempArray.push(element[index])
     });
-    tempArray.sort(function(a, b) {return a-b})
-    //tempArray sorted
+    for (let leftVal=0;leftVal<tempArray.length;leftVal++) {
+        for (let rightVal=leftVal; rightVal<tempArray.length;rightVal++) {
+            if (tempArray[rightVal] < tempArray[(leftVal)]) {
+                let temp = tempArray[leftVal];
+                tempArray[leftVal] = tempArray[rightVal];
+                tempArray[rightVal] = temp;
+            }
+        }
+    }
     let median;
     if (tempArray.length % 2 === 0) {
         median = (tempArray[tempArray.length/2] + tempArray[tempArray.length/2-1]) / 2;
@@ -132,8 +79,36 @@ function calcMeanMedian(index) {
     else {
         median = tempArray[Math.floor(tempArray.length/2)]
     }
-    rangeOf.push([tempArray[0],tempArray[tempArray.length-1]])
-    return "Mean: " + Math.round(mean*100)/100 + "\nMedian: " + Math.round(median*100)/100;
+    return "Mean: " + Math.round(mean*100)/100 + ", Median: " + Math.round(median*100)/100;
+}
+
+function sortBy() {
+    let selectedOption = document.getElementById("sortByOptions").value;
+    sortFunction(KPIparsed, keysArray.indexOf(selectedOption));
+    repopulateTable();
+    simplePlotDisplay()
+}
+
+function sortFunction(arrayToSort, sortIndex) {
+    let highLow = document.getElementById("lowHighSelect").value;
+    for (let leftVal=0;leftVal<arrayToSort.length;leftVal++) {
+        for (let rightVal=leftVal; rightVal<arrayToSort.length;rightVal++) {
+            if ((arrayToSort[rightVal][sortIndex] < arrayToSort[(leftVal)][sortIndex] && highLow == "lowToHigh") || (arrayToSort[rightVal][sortIndex] > arrayToSort[(leftVal)][sortIndex] && highLow == "highToLow")) {
+                let temp = arrayToSort[rightVal];
+                arrayToSort[rightVal] = arrayToSort[leftVal];
+                arrayToSort[leftVal] = temp;
+            }
+        }
+    }
+}
+
+function repopulateTable() {
+    let table = document.getElementById("KPITable");
+    for (row=0;row<(KPIparsed.length);row++) { 
+        for (cell=0;cell<keysArray.length;cell++) {
+            table.rows[row+2].cells[cell].innerHTML = KPIparsed[row][cell];
+        }
+    }
 }
 
 function simplePlotDisplay() {
@@ -181,8 +156,3 @@ function simplePlotDisplay() {
               });
     }
 }
-
-
-
-
-//sort
