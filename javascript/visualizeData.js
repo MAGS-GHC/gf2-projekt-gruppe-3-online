@@ -12,27 +12,22 @@ async function KPIExcelParse() {
     createKPITable();
 }
 
-function createSortOptions() { //improve, reduce repetition
+function createSortOptions() {
     let optionList = document.getElementById("sortByOptions");
-    optionList.innerHTML = "";
-    for (i=0;i<keysArray.length;i++) {
-        let newOption = keysArray[i];
-        let temp = document.createElement("option");
-        temp.textContent = newOption;
-        temp.value = newOption;
-        temp.id = "x: " + keysArray[i]
-        optionList.appendChild(temp)
-    }
-    
+    sortAppends("x: ")
     optionList = document.getElementById("yAxis");
-    optionList.innerHTML = "";
-    for (i=0;i<keysArray.length;i++) {
-        let newOption = keysArray[i];
-        let temp = document.createElement("option");
-        temp.textContent = newOption;
-        temp.value = newOption;
-        temp.id = "y: " + keysArray[i]
-        optionList.appendChild(temp)
+    sortAppends("y: ")
+
+    function sortAppends(idName) {
+        optionList.innerHTML = "";
+        for (i=0;i<keysArray.length;i++) {
+            let newOption = keysArray[i];
+            let temp = document.createElement("option");
+            temp.textContent = newOption;
+            temp.value = newOption;
+            temp.id = idName + keysArray[i]
+            optionList.appendChild(temp)
+        }
     }
 }
 
@@ -42,9 +37,7 @@ function createKPITable() {
     let colHead = table.createTHead();
     let headRow = colHead.insertRow(0);
     let meanModeRow = colHead.insertRow(1);
-    console.log("keysArray.length" + keysArray.length)
     for (header=0;header<keysArray.length;header++) {
-        console.log("tableRows")
         let currentCell = headRow.insertCell(header)
         currentCell.innerHTML = keysArray[header]
         currentCell = meanModeRow.insertCell(header)
@@ -60,7 +53,6 @@ function createKPITable() {
 }
 
 function calcMeanMedian(index) {
-    console.log("meanMed")
     let tempSum = 0;
     KPIparsed.forEach(element => {
         tempSum += element[index];
@@ -72,7 +64,7 @@ function calcMeanMedian(index) {
         tempArray.push(element[index])
     });
     for (let leftVal=0;leftVal<tempArray.length;leftVal++) {
-        for (let rightVal=0; rightVal<tempArray.length;rightVal++) {
+        for (let rightVal=leftVal; rightVal<tempArray.length;rightVal++) {
             if (tempArray[rightVal] < tempArray[(leftVal)]) {
                 let temp = tempArray[leftVal];
                 tempArray[leftVal] = tempArray[rightVal];
@@ -87,7 +79,7 @@ function calcMeanMedian(index) {
     else {
         median = tempArray[Math.floor(tempArray.length/2)]
     }
-    return "Mean: " + Math.round(mean*100)/100 + "\nMedian: " + Math.round(median*100)/100;
+    return "Mean: " + Math.round(mean*100)/100 + ", Median: " + Math.round(median*100)/100;
 }
 
 function sortBy() {
@@ -99,29 +91,15 @@ function sortBy() {
 
 function sortFunction(arrayToSort, sortIndex) {
     let highLow = document.getElementById("lowHighSelect").value;
-        if (highLow == "lowToHigh") {
-            for (let leftVal=0;leftVal<arrayToSort.length;leftVal++) {
-                for (let rightVal=0; rightVal<arrayToSort.length;rightVal++) {
-                    if (arrayToSort[rightVal][sortIndex] > arrayToSort[(leftVal)][sortIndex]) {
-                        let temp = arrayToSort[leftVal];
-                        arrayToSort[leftVal] = arrayToSort[rightVal];
-                        arrayToSort[rightVal] = temp;
-                    }
-                }
+    for (let leftVal=0;leftVal<arrayToSort.length;leftVal++) {
+        for (let rightVal=leftVal; rightVal<arrayToSort.length;rightVal++) {
+            if ((arrayToSort[rightVal][sortIndex] < arrayToSort[(leftVal)][sortIndex] && highLow == "lowToHigh") || (arrayToSort[rightVal][sortIndex] > arrayToSort[(leftVal)][sortIndex] && highLow == "highToLow")) {
+                let temp = arrayToSort[rightVal];
+                arrayToSort[rightVal] = arrayToSort[leftVal];
+                arrayToSort[leftVal] = temp;
             }
         }
-        if (highLow == "highToLow") {
-            for (let leftVal=0;leftVal<arrayToSort.length;leftVal++) {
-                for (let rightVal=0; rightVal<arrayToSort.length;rightVal++) {
-                    if (arrayToSort[rightVal][sortIndex] < arrayToSort[(leftVal)][sortIndex]) {
-                        let temp = arrayToSort[leftVal];
-                        arrayToSort[leftVal] = arrayToSort[rightVal];
-                        arrayToSort[rightVal] = temp;
-                    }
-                }
-            }
-        }
-    
+    }
 }
 
 function repopulateTable() {
