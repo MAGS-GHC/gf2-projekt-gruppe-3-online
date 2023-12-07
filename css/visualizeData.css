@@ -8,17 +8,14 @@ select {
     text-align: center;
 }
 
-body {
-    background-image: url("/assets/bunMetric.png");
-    background-repeat: no-repeat;
-}
-
 .KPITable {
     display: grid;
     height: 500px;
     overflow: auto;
     background-color: white;
     opacity: 0.5;
+    background-image: url("/assets/bunMetric.png");
+    background-repeat: no-repeat;
 }
 
 th,td {

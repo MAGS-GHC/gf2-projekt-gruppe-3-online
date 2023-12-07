@@ -8,10 +8,19 @@
     <script defer src="https://unpkg.com/read-excel-file@5.x/bundle/read-excel-file.min.js"></script>
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
     <link rel="stylesheet" href="/css/visualizeData.css">
+    <link rel="stylesheet" href="/css/styles.css">
     <link rel="icon" type="image/x-icon" href="/assets/icons/abacus.png">
 </head>
 
 <body>
+    
+        <img src="/assets/bg.png" alt="" class="backGround">
+    <nav>
+        <a href="/index.html">Home</a>
+        <a href="/html/passwords.html">Password Generator</a>
+        <a href="/html/banko.html">Banko</a>
+    </nav>
+
 
 <div class="fileSelect">
     <input type="file" id="KPIfile" accept=".xlsx,.xls" oninput="KPIExcelParse()" required>
@@ -40,6 +49,5 @@
 <div id="canvasDiv" class="canvas">
     <canvas id="myChart"></canvas>
 </div>
-
 </body>
 </html>

@@ -23,22 +23,22 @@ function sortFunction(sortType) {
     switch (highLow) {
         case "lowToHigh":
             for (i=0;i<KPIparsed.length;i++) {
-                for (j=i; j<(KPIparsed.length-i);j++) {
-                    if (KPIparsed[i][sortType] > KPIparsed[j][sortType]) {
-                        let temp = KPIparsed[j];
-                        KPIparsed[j] = KPIparsed[i];
-                        KPIparsed[i] = temp;
+                for (j=0; j<KPIparsed.length;j++) {
+                    if (KPIparsed[j][sortType] > KPIparsed[(i)][sortType]) {
+                        let temp = KPIparsed[i];
+                        KPIparsed[i] = KPIparsed[j];
+                        KPIparsed[j] = temp;
                     }
                 }
             }
             break;
         case "highToLow":
             for (i=0;i<KPIparsed.length;i++) {
-                for (j=i; j<(KPIparsed.length-i);j++) {
-                    if (KPIparsed[i][sortType] < KPIparsed[j][sortType]) {
-                        let temp = KPIparsed[j];
-                        KPIparsed[j] = KPIparsed[i];
-                        KPIparsed[i] = temp;
+                for (j=0; j<KPIparsed.length;j++) {
+                    if (KPIparsed[j][sortType] < KPIparsed[(i)][sortType]) {
+                        let temp = KPIparsed[i];
+                        KPIparsed[i] = KPIparsed[j];
+                        KPIparsed[j] = temp;
                     }
                 }
             }
