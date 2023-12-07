@@ -3,11 +3,10 @@ A: THE RULES OF A BANKOCARD
 1. 3 rows 9 columns
 2. Column 0: (1..9) | Column 1: (10..19) | Column 2: (20..29) | Column 3: (30..39) | Column 4: (40..49) | Column 5: (50..59) | Column 6: (60..69) | Column 7: (70..79) | Column 8: (80..90)
 3. Column 8 goes to 90
-4. Each row should contain 5 numbers and be placed in a column value-group (fx. 23 is placed in column 3 and 46 in column 5)
-5. There's 15 numbers in total on each bankocard
-6. Minimum 1 number in each column 
-7. Each column should be sorted from lowest to highest number if there's more than 1 number in the column
-8. No number is displayed twice on a bankocard
+4. Each row should contain 5 numbers and be placed in a column value-group (fx. 23 is placed in column 2 and 46 in column 4)
+5. Minimum 1 number in each column 
+6. Each column should be sorted from lowest to highest number without moving empty fields
+7. No number is displayed twice on a bankocard
 
 B: BANKOCARD 0 INPUTFIELDS
 
@@ -18,8 +17,8 @@ B: BANKOCARD 0 INPUTFIELDS
 
 C: CREATE GLOBAL VARIABLES
 
-1. Define randomNumbersArray0, randomNumbersArray1 and randomNumbersArray2 in global scope so it can be accessed by multiple functions
-2. Define bankocard in global scope
+1. Delcare randomNumbersArray0, randomNumbersArray1 and randomNumbersArray2 in global scope so it can be accessed by multiple functions
+2. Declare bankocard in global scope
 
 D: BANKO FUNCTION
 
@@ -102,7 +101,7 @@ I: COUNT EMPTY FIELDS IN ONE COLUMN
 J: COUNT TOTAL EMPTY COLUMNS
 
 1. Create function CheckEmptyColumns
-2. Declare columnError to 0
+2. Declare columnError and set to 0
 3. Create loop from 0..8
 4. Make if statement that counts up columnErrors by one, each time there's more than 2 empty fields in a column
 5. The Function returns with the value of columnError 
@@ -114,11 +113,11 @@ K: SORT ONE COLUMN
 2. Declare arrayColumn as an empty array
 3. Point elementId to the bankocard, r0c + col
 4. Insert container input r0c + col in arrayColumn[0]
-5. repeat for r1c + col and insert in arrayColumn[1]
-6. repeat for r2c + col and insert in arrayColumn[2]
-7. Declare emptyFieldCount to 0
+5. Insert container input r1c + col in arrayColumn[1]
+6. Insert container input r2c + col in arrayColumn[2]
+7. Declare emptyFieldCount and set to 0
 8  Loop from 0..2
-9. If arrayColumn on [i] place is an empty string count emptyFieldCount up by one
+9. If arrayColumn[i] is an empty string count emptyFieldCount up by one
 
 
 L: IF THERE'S NO EMPTY PLACES IN COLUMN
@@ -135,6 +134,14 @@ M: HOW TO SORT COLUMN IF THERE'S 1 EMPTY FIELD
 N: HOW TO SORT COLUMN IF THERE'S 2 EMPTY FIELDS 
 
 1. Easy peezy lemon squeezy ! Do nothing.
+
+
+2. Point elementId to the bankocard, r0c + col
+3. Insert arrayColumn[0] in container input r0c + col
+4. Insert arrayColumn[1] in container input r1c + col
+5. Insert arrayColumn[2] in container input r2c + col
+
+
 
 O: SORT ALL COLUMNS
 

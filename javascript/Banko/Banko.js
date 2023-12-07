@@ -42,7 +42,7 @@ function bankoRow0() {
     do {
 
         let elementId;
-        //Clear Inputs
+        //clear container inputs
         for (let i = 0; i < 9; i++) {
             elementId = bankocard + "r0c" + i; //opsætter pegepind til container input felt
             document.getElementById(elementId).value = "";
