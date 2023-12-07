@@ -8,9 +8,6 @@
   background-size: fit;
   background-position: center;
   z-index: -1; 
-  
-
-
 }
 
 .bankoCard0 {
@@ -21,7 +18,7 @@
     padding: 0px;
     text-align: center;
     justify-content: center;
-  }
+ }
     
     .bankoCard0 input {
     background-color: white;
@@ -45,8 +42,7 @@
     justify-content: center;
   }
 
-
-  .bankoCard1 input {
+    .bankoCard1 input {
     background-color: white;
     width: 65px;
     height: 65px;
@@ -59,7 +55,6 @@
     background-color: rgb(164, 250, 164);
   }
 
-
   .bankoCard2 {
     display: grid;
     grid-template-columns: 60px 60px 60px 60px 60px 60px 60px 60px 60px;
@@ -70,7 +65,6 @@
     justify-content: center;
    
   }
-
 
   .bankoCard2 input {
     background-color: white;
@@ -126,7 +120,22 @@ img {
   justify-content: center;
   align-items: center;
   gap: 10px;
+}
 
+nav a {
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+  padding: 14px 16px;
+  display: inline-block;
+  font-size: 24px;
+  font-family: 'Inter';
+  font-style: normal;
+  color:#000000;
+}
+
+nav a:hover {
+      
+  color: #F7C88A;
 }
 
 .pullNumber{
