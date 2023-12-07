@@ -28,6 +28,22 @@ B. VISUALIZE DATA
 		c. createKPITable()
 			in html table element, reset and createTHead(), insertRow(0 and 1) for keysArray row and for mean/median row. Loop keysArray.length, twoRows.insertCell(i), .innerHTML to keysArray[i] and calcMeanMedian(i) respectively.
 			Then loop of KPIparsed.length, starting insertRow(i+2) to not overwrite headers. Inner loop keysArray.length, to populate each cell. insertCell(j), .innerHTML = KPIparsed[i][j].
+		d. calcMeanMedian(index)
+			creates a temporary array of KPIparsed[i] values (i.e. one column), sorts them, then calculates the median and mean; first by selection middle value (mean of middle two, if even), then summing all values and dividing by array length.
+		e. sortBy()
+			checks html x-axis value for options from createSortOptions. Calls sortFunction(keysArray.indexOf(selectedOption)), repopulateTable(), and simplePlotDisplay()
+		f. sortFunction
+			See C. SORTING ALGORITHM
+		g. repopulateTable()
+			the newly sorted KPIparsed is run through two loops, table.rows[i+2].cells[j].innerHTML = KPIparsed[i][j]. i+2 to not overwrite header contents.
+		h. simplePlotDisplay()
+			see D. GRAPHING
+
+	III. Significant HTML elements
+		a. input type="file" oninput="KPIExcelParse()"
+		b. table id="KPITable", empty. Table rows/cells created in createKPITable()
+		c. <select> tags, for x-axis, asc/desc, y-axis, graphType. Options for x/y-axis appended in createSortOptions()
+		d. canvas in div, for graphing.
 
 C. SORTING ALGORITHM
 
@@ -39,3 +55,4 @@ D. GRAPHING
  WIP:
 createSortOptions (reduce repetition)
 calcMeanMedian (sort and reduce?)
+simplePlotDisplay(sort and reduce?)
