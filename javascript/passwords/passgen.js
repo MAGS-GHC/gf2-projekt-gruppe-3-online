@@ -3,28 +3,9 @@ const charsOptional = "æøåÆØÅ!@#$%+-/*"
 updateVals();
 createCheckbox(charsOptional);
 
-
-function generatePassword() {
-    let passLength = document.getElementById("pswLength").value;
-    let password = ""
-    let charsAllowed = generateCharsAllowed(charsBase);
-    for (i=0;i<passLength;i++) {
-        password += charsAllowed[Math.floor(Math.random() * charsAllowed.length)]
-    }
-    this[ourVal]["password"] = password;
-    delete this[ourVal]["passReset"]
-    alert("Your new password is " + password);
-    resetVars();}
-
-function updateVals() {
-    document.getElementById("sliderOutput").innerText = document.getElementById("pswLength").value;
-
-}
-
 function createCheckbox(charOpt) {
     let checkboxDiv = document.getElementById("checkboxDiv");
     for (i=0;i<charOpt.length;i++) {
-        //create checkbox for each charOpt
         let checkbox = document.createElement("input");
         let label = document.createElement("label");
         checkbox.type = "checkbox";
@@ -46,4 +27,21 @@ function generateCharsAllowed(charset) {
         }
     }
     return charset;
+}
+
+function generatePassword() {
+    let passLength = document.getElementById("pswLength").value;
+    let password = ""
+    let charsAllowed = generateCharsAllowed(charsBase);
+    for (i=0;i<passLength;i++) {
+        password += charsAllowed[Math.floor(Math.random() * charsAllowed.length)]
+    }
+    this[ourVal]["password"] = password;
+    delete this[ourVal]["passReset"]
+    alert("Your new password is " + password);
+    resetVars();
+}
+
+function updateVals() {
+    document.getElementById("sliderOutput").innerText = document.getElementById("pswLength").value;
 }
