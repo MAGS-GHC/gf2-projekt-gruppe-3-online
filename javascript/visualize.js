@@ -1,68 +1,15 @@
 let KPIparsed; 
 let keysArray; 
 
-function sortBy() {
-    let test = document.getElementById("sortByOptions").value;
-    sortFunction(keysArray.indexOf(test));
-    console.table(KPIparsed);
-    repopulateTable();
-    simplePlotDisplay()
-}
-
-function sortFunction(sortType) {
-    let highLow = document.getElementById("lowHighSelect").value;
-    switch (highLow) {
-        case "lowToHigh":
-            for (i=0;i<KPIparsed.length;i++) {
-                for (j=0; j<KPIparsed.length;j++) {
-                    if (KPIparsed[j][sortType] > KPIparsed[(i)][sortType]) {
-                        let temp = KPIparsed[i];
-                        KPIparsed[i] = KPIparsed[j];
-                        KPIparsed[j] = temp;
-                    }
-                }
-            }
-            break;
-        case "highToLow":
-            for (i=0;i<KPIparsed.length;i++) {
-                for (j=0; j<KPIparsed.length;j++) {
-                    if (KPIparsed[j][sortType] < KPIparsed[(i)][sortType]) {
-                        let temp = KPIparsed[i];
-                        KPIparsed[i] = KPIparsed[j];
-                        KPIparsed[j] = temp;
-                    }
-                }
-            }
-            break;
-    }
-    
-}
-
-function repopulateTable() {
-    let table = document.getElementById("KPITable");
-    console.log(table.rows.length)
-    for (row=0;row<(KPIparsed.length);row++) { 
-        for (cell=0;cell<keysArray.length;cell++) {
-            table.rows[row+2].cells[cell].innerHTML = KPIparsed[row][cell];
-            //+2row to not overwrite headers
-        }
-    }
-    console.log(table.rows.length)
-}
-
 async function KPIExcelParse() {
     let KPIsource = await document.getElementById("KPIfile");
     await readXlsxFile(KPIsource.files[0]).then(function(rows) {
-        //rows an array of rows
-        //each row an array of cells
         KPIparsed = rows;    
         keysArray = KPIparsed[0];
         KPIparsed.shift();
     })
     createSortOptions();
     createKPITable();
-    //createObjectKeys();
-    
 }
 
 function createSortOptions() { //improve, reduce repetition
@@ -109,6 +56,60 @@ function createKPITable() {
         }
     }
 }
+
+function sortBy() {
+    let selectedOption = document.getElementById("sortByOptions").value;
+    sortFunction(keysArray.indexOf(selectedOption));
+    console.table(KPIparsed);
+    repopulateTable();
+    simplePlotDisplay()
+}
+
+function sortFunction(sortType) {
+    let highLow = document.getElementById("lowHighSelect").value;
+    switch (highLow) {
+        case "lowToHigh":
+            for (i=0;i<KPIparsed.length;i++) {
+                for (j=0; j<KPIparsed.length;j++) {
+                    if (KPIparsed[j][sortType] > KPIparsed[(i)][sortType]) {
+                        let temp = KPIparsed[i];
+                        KPIparsed[i] = KPIparsed[j];
+                        KPIparsed[j] = temp;
+                    }
+                }
+            }
+            break;
+        case "highToLow":
+            for (i=0;i<KPIparsed.length;i++) {
+                for (j=0; j<KPIparsed.length;j++) {
+                    if (KPIparsed[j][sortType] < KPIparsed[(i)][sortType]) {
+                        let temp = KPIparsed[i];
+                        KPIparsed[i] = KPIparsed[j];
+                        KPIparsed[j] = temp;
+                    }
+                }
+            }
+            break;
+    }
+    
+}
+
+function repopulateTable() {
+    let table = document.getElementById("KPITable");
+    console.log(table.rows.length)
+    for (row=0;row<(KPIparsed.length);row++) { 
+        for (cell=0;cell<keysArray.length;cell++) {
+            table.rows[row+2].cells[cell].innerHTML = KPIparsed[row][cell];
+            //+2row to not overwrite headers
+        }
+    }
+    console.log(table.rows.length)
+}
+
+
+
+
+
 
 
 function calcMeanMedian(index) {

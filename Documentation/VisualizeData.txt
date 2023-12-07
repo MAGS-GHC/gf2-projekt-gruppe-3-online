@@ -1,0 +1,41 @@
+VISUALIZE DATA
+GOALS
+	I. Process .xlsx with KPI (key performance indicators), populating table and allowing sorting value sets ascending/descending. Also display mean and mode.
+	II. Implement own sorting algorithm.
+	III. Display KPI as graphs.
+
+A. EXTERNAL ASSETS 
+	I. read-excel-file
+		a. https://www.npmjs.com/package/read-excel-file#cdn
+		b. follow documentation to parse input type="file" in async function. readXlsx(sourcefile.files[0]).then(function(rows) {KPIparsed = rows;})
+		c. Output format: array = [rows[columns]]
+		
+	II. Plotly.js or Chart.js
+		a. https://www.w3schools.com/ai/ai_plotly.asp or https://www.w3schools.com/ai/ai_chartjs.asp
+		
+B. VISUALIZE DATA
+	I. Variables
+		a. KPIparsed
+			Array (columns) of arrays (rows). Derived from KPIExcelParse()
+		b. keysArray
+			Array of headers, removed from KPIparsed.
+		
+	II. Functions
+		a. KPIExcelParse()
+			See read-excel-file external asset for formatting. async, await .xlsx file uploaded in html input type="file" field. Set keysArray = KPIparsed[0] and shift it out of KPIparsed to simplify sorting. Calls createSortOptions() and createKPITable()
+		b. createSortOptions()
+			in html select fields for x-axis and y-axis, append options with .textContent and .value. Loop keysArray.length, and keysArray[i] for option content.
+		c. createKPITable()
+			in html table element, reset and createTHead(), insertRow(0 and 1) for keysArray row and for mean/median row. Loop keysArray.length, twoRows.insertCell(i), .innerHTML to keysArray[i] and calcMeanMedian(i) respectively.
+			Then loop of KPIparsed.length, starting insertRow(i+2) to not overwrite headers. Inner loop keysArray.length, to populate each cell. insertCell(j), .innerHTML = KPIparsed[i][j].
+
+C. SORTING ALGORITHM
+
+D. GRAPHING
+
+
+
+
+ WIP:
+createSortOptions (reduce repetition)
+calcMeanMedian (sort and reduce?)
