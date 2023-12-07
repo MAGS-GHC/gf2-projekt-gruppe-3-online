@@ -222,7 +222,7 @@ input.addEventListener('click', function() {
 }); 
 
 
-// CLEAR GREEN WHEN CREATING NEW CARDS
+// CLEAR GREEN 
 
 function clearGreen() {
   let clickedElements = document.querySelectorAll('.clicked');
