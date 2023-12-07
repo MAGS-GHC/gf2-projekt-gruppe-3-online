@@ -13,7 +13,7 @@ function countEmptyFields(row) {
     if (fieldValue === "") { emptyFieldCount++;}
     }
 
-    return emptyFieldCount; //funktion returnerer med værdi = antal tomme felter i row
+    return emptyFieldCount; 
 } 
 
 //COUNT EMPTY FIELDS IN ONE COLUMN
@@ -29,10 +29,10 @@ function CountEmptyFieldsOneColumn(col) {
 
         elementId = bankocard + "r" + row + "c" + col; //opsætter pegepind til container input
         fieldValue = document.getElementById(elementId).value;
-        if (fieldValue === "") {emptyFieldCount++;} //er felt tomt tælles emptyFieldCount op
+        if (fieldValue === "") {emptyFieldCount++;} 
     }
 
-    return emptyFieldCount; //funktion returnerer med værdien = antal tomme felter i column col
+    return emptyFieldCount; 
 }
 
 //COUNT TOTAL EMPTY FIELDS IN COLUMN      
@@ -47,7 +47,7 @@ function checkEmptyColumn(){
         if(CountEmptyFieldsOneColumn(col) > 2){columnError++;} //er der 3 tomme felter i column c tælles columnsError op
     } 
 
-    return columnError; //funktion returnerer med værdien = antal tomme columns i container inputs
+    return columnError; //antal tomme columns i container inputs
 }
 
     //SORT ONE COLUMN
@@ -73,7 +73,7 @@ function sortOneColumn(col){
 
     for(let i = 0; i < 3; i++){ //i 0..2 (row)   
 
-        if(arrayColumn[i] === ""){ emptyFieldCount++;} //er feltet tomt tælles emptyFiedCount op   
+        if(arrayColumn[i] === ""){ emptyFieldCount++;}    
     }
 
     //hvis der 0 tomme felter i column sortes column
