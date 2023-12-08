@@ -13,15 +13,15 @@ B0: Shared planning considerations
     2: Work in individual folders until feature-ready
     3: Discuss implementation before moving to main folders 
 
-B1: (EDM/VisualizeData)
+B1: (EDM - VisualizeData)
 
 B2: (Mikkel - Banko)
 
-B3: (Stina - Landing Page)
+B3: (Mikkel - Landing Page)
+
+B4: (EDM - Passwords)
 
 C: Reincorporate finished components
     1: Organize folder structures for main project
     2: Synchronize style/html 
     3: Routing to/from landing page
-
-
