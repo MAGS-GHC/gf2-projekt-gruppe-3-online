@@ -33,7 +33,7 @@ B. VISUALIZE DATA
 			creates a temporary array of KPIparsed[i] values (i.e. one column), sorts them, then calculates the median and mean; first by selection middle value (mean of middle two, if even), then summing all values and dividing by array length.
 		e. sortBy()
 			checks html x-axis value for options from createSortOptions. Calls sortFunction(keysArray.indexOf(selectedOption)), repopulateTable(), and simplePlotDisplay()
-		f. sortFunction
+		f. sortFunction(arrayToSort, sortIndex)
 			See C. SORTING ALGORITHM
 		g. repopulateTable()
 			the newly sorted KPIparsed is run through two loops, table.rows[i+2].cells[j].innerHTML = KPIparsed[i][j]. i+2 to not overwrite header contents.
@@ -47,11 +47,25 @@ B. VISUALIZE DATA
 		d. canvas in div, for graphing.
 
 C. SORTING ALGORITHM
+	The built-in array.sort() method is undesired.
+	I. sortFunction(arrayToSort, sortIndex)
+		a. We call the arrayToSort (here KPIparsed), along with the sortIndex (here keysArray.indexOf(selectedOption)).
+	
+	II. Nested for-loop sort (Bubble sort)
+		a. Outer loop runs along entire length of array. i++
+		b. Inner loop runs along entire length of array, except already sorted i. j++
+		c. arrayToSort[i][sortIndex] compared [j][sortIndex]. If yes,
+		d. exchange arrayToSort[i] and [j], with temp var. Each full outer loop cycle pushes one value in desired order.
+		e. Note no [sortIndex] during exchange. Actual array contents must not be altered, only order.
 
 D. GRAPHING
+	I. Variables
+		a. xTemp, yTemp, 
+			Because of inconsistent data sets requested from different graphs, start by importing index only of selected sort options
+	
+	II. data set retrieval
+		a. KPIparsed[i][xTemp] and [yTemp] are pushed into xAxis and yAxis sets, depending on graph type.
 
-
-
-
- WIP:
-simplePlotDisplay(sort and reduce?)
+	III. Notes
+		a. <canvas> is pre-set in html. On each function call, querySelector clear innerHTML of canvas to prevent graph elements layering.
+		b. Consult documentation of A.II.
