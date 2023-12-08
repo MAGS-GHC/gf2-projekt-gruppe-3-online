@@ -96,7 +96,7 @@ function bankoRow1() {
             document.getElementById(elementId).value = "";        
         }
        
-        randomNumbersArray1 = []; //Declare randomNumbersArray1 as an empty array
+        randomNumbersArray1 = []; 
        
         let randomNumber;
         //udtag 5 tilfældige tal
@@ -145,7 +145,7 @@ function bankoRow2() {
                 document.getElementById(elementId).value = "";
             }
 
-            randomNumbersArray2 = []; //Declare randomNumbersArray2 as an empty array
+            randomNumbersArray2 = [];
             let randomNumber;
             //udtag 5 tilfældige tal
             for (let i = 0; i < 5; i++) {
