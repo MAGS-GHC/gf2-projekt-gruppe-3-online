@@ -1,5 +1,5 @@
 const charsBase = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
-const charsOptional = "æøåÆØÅ!@#$%+-/*"
+const charsOptional = "æøåÆØÅ!#@$%+-/*"
 updateVals();
 createCheckbox(charsOptional);
 
